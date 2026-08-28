@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { ArrowLeft, BookOpen, CalendarDays } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
 import { LessonBrowser } from '@/components/lesson-browser';
+import { NativeLink } from '@/components/native-link';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { Badge } from '@/components/ui/badge';
@@ -37,9 +37,9 @@ export default async function TrackPage({ params }: TrackPageProps) {
       <SiteHeader />
       <section className="border-b border-border/70">
         <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
-          <Link href="/" className="mb-7 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+          <NativeLink href="/" className="mb-7 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
             <ArrowLeft className="size-4" /> 返回全部路线
-          </Link>
+          </NativeLink>
           <div className="grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
               <Badge variant="secondary" className="mb-4">{config.eyebrow}</Badge>

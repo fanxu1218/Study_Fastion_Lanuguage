@@ -1,9 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { ArrowRight, Search } from 'lucide-react';
 import { useId, useMemo, useState } from 'react';
 
+import { NativeLink } from '@/components/native-link';
 import { Input } from '@/components/ui/input';
 
 interface BrowserLesson {
@@ -49,7 +49,7 @@ export function LessonBrowser({ lessons, placeholder = '搜索本路线课程…
         <ol className="grid gap-3">
           {filteredLessons.map((lesson) => (
             <li key={`${lesson.track}-${lesson.slug}`}>
-              <Link
+              <NativeLink
                 href={`/${lesson.track}/${lesson.slug}`}
                 className="group grid gap-3 rounded-2xl border border-border/70 bg-card p-5 shadow-[0_1px_0_rgb(0_0_0/3%)] transition-all hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-md sm:grid-cols-[58px_1fr_auto] sm:items-center"
               >
@@ -62,7 +62,7 @@ export function LessonBrowser({ lessons, placeholder = '搜索本路线课程…
                   {lesson.date.replaceAll('-', '.')}
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
                 </span>
-              </Link>
+              </NativeLink>
             </li>
           ))}
         </ol>

@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { ArrowRight, BookOpen, Clock3 } from 'lucide-react';
 
+import { NativeLink } from '@/components/native-link';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { Badge } from '@/components/ui/badge';
@@ -101,10 +101,10 @@ export default function Home() {
               </CardContent>
               <CardFooter className="justify-between border-border/70 bg-background/50 px-6 py-4 sm:px-7">
                 <span className="text-xs text-muted-foreground">从第 1 课开始，也可以接着学</span>
-                <Link href={`/${track.slug}`} className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary">
+                <NativeLink href={`/${track.slug}`} className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary">
                   查看{track.shortName}课程
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-                </Link>
+                </NativeLink>
               </CardFooter>
             </Card>
           ))}

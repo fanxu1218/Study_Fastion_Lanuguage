@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import type { ReactNode } from 'react';
+
+import { NativeLink } from '@/components/native-link';
 
 function renderInline(text: string, keyPrefix: string): ReactNode[] {
   const pattern = /(`[^`]+`|\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g;
@@ -18,7 +19,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
       const external = /^https?:\/\//.test(link[2]);
       return external
         ? <a key={key} href={link[2]} target="_blank" rel="noreferrer">{link[1]}</a>
-        : <Link key={key} href={link[2]}>{link[1]}</Link>;
+        : <NativeLink key={key} href={link[2]}>{link[1]}</NativeLink>;
     }
     return part;
   });

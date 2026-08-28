@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { ArrowLeft, ArrowRight, CalendarDays, ListOrdered } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
 import { Markdown } from '@/components/markdown';
+import { NativeLink } from '@/components/native-link';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { Badge } from '@/components/ui/badge';
@@ -44,9 +44,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
         <div className="grid gap-10 lg:grid-cols-[190px_minmax(0,760px)] lg:justify-center">
           <aside className="hidden lg:block">
             <div className="sticky top-24">
-              <Link href={`/${track}`} className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+              <NativeLink href={`/${track}`} className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
                 <ArrowLeft className="size-4" /> {config.shortName} 目录
-              </Link>
+              </NativeLink>
               <div className="mt-6 rounded-2xl border border-border/70 bg-card p-4">
                 <p className="text-xs text-muted-foreground">当前进度</p>
                 <p className="mt-1 text-lg font-semibold">第 {lesson.number} 课</p>
@@ -58,9 +58,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
           </aside>
 
           <article>
-            <Link href={`/${track}`} className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground lg:hidden">
+            <NativeLink href={`/${track}`} className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground lg:hidden">
               <ArrowLeft className="size-4" /> {config.shortName} 目录
-            </Link>
+            </NativeLink>
             <div className="mb-8 border-b border-border/70 pb-7">
               <div className="mb-4 flex flex-wrap gap-2">
                 <Badge variant="secondary"><ListOrdered className="mr-1 size-3" />第 {lesson.number} 课</Badge>
@@ -73,16 +73,16 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
             <nav className="mt-12 grid gap-3 border-t border-border/70 pt-7 sm:grid-cols-2" aria-label="课程翻页">
               {previous ? (
-                <Link href={`/${track}/${previous.slug}`} className="group rounded-2xl border border-border/70 bg-card p-4 hover:border-primary/35">
+                <NativeLink href={`/${track}/${previous.slug}`} className="group rounded-2xl border border-border/70 bg-card p-4 hover:border-primary/35">
                   <span className="flex items-center gap-1 text-xs text-muted-foreground"><ArrowLeft className="size-3.5" />上一课</span>
                   <span className="mt-2 block text-sm font-medium">{previous.title.replace(/^第\s*\d+\s*课[:：]?\s*/, '')}</span>
-                </Link>
+                </NativeLink>
               ) : <span />}
               {next && (
-                <Link href={`/${track}/${next.slug}`} className="group rounded-2xl border border-border/70 bg-card p-4 text-right hover:border-primary/35">
+                <NativeLink href={`/${track}/${next.slug}`} className="group rounded-2xl border border-border/70 bg-card p-4 text-right hover:border-primary/35">
                   <span className="flex items-center justify-end gap-1 text-xs text-muted-foreground">下一课<ArrowRight className="size-3.5" /></span>
                   <span className="mt-2 block text-sm font-medium">{next.title.replace(/^第\s*\d+\s*课[:：]?\s*/, '')}</span>
-                </Link>
+                </NativeLink>
               )}
             </nav>
           </article>
