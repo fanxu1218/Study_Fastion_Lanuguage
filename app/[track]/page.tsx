@@ -19,6 +19,8 @@ export async function generateMetadata({ params }: TrackPageProps): Promise<Meta
   return {
     title: `${trackConfigs[track].shortName} 学习路线`,
     description: trackConfigs[track].description,
+    openGraph: { images: [] },
+    twitter: { images: [] },
   };
 }
 

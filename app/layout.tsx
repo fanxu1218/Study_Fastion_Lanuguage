@@ -13,11 +13,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://progressive-programming-cn.fanxu12180618.chatgpt.site'),
   title: {
     default: '渐进式编程课',
     template: '%s · 渐进式编程课',
   },
   description: '每天一节中文短课，持续学习 Kotlin Multiplatform 与 HarmonyOS 开发。',
+  openGraph: {
+    title: '渐进式编程课',
+    description: '每天一节中文短课，持续学习 KMP 与 HarmonyOS。',
+    url: '/',
+    siteName: '渐进式编程课',
+    locale: 'zh_CN',
+    type: 'website',
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: '渐进式编程课' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '渐进式编程课',
+    description: '每天一节中文短课，持续学习 KMP 与 HarmonyOS。',
+    images: ['/og.png'],
+  },
 };
 
 export default function RootLayout({

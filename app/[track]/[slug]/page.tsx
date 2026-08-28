@@ -19,7 +19,12 @@ export async function generateMetadata({ params }: LessonPageProps): Promise<Met
   if (!isTrackSlug(track)) return {};
   const lesson = getLesson(track, decodeURIComponent(slug));
   if (!lesson) return {};
-  return { title: lesson.title, description: lesson.summary };
+  return {
+    title: lesson.title,
+    description: lesson.summary,
+    openGraph: { title: lesson.title, description: lesson.summary, images: [] },
+    twitter: { title: lesson.title, description: lesson.summary, images: [] },
+  };
 }
 
 export default async function LessonPage({ params }: LessonPageProps) {
