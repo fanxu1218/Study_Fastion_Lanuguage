@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://progressive-programming-cn.fanxu12180618.chatgpt.site'),
+  metadataBase: new URL('https://study.fanxu12180618.chatgpt.site'),
   title: {
     default: '渐进式编程课',
     template: '%s · 渐进式编程课',

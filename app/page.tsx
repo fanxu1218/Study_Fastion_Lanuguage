@@ -1,4 +1,5 @@
 import { ArrowRight, BookOpen, Clock3 } from 'lucide-react';
+import Image from 'next/image';
 
 import { NativeLink } from '@/components/native-link';
 import { SiteFooter } from '@/components/site-footer';
@@ -34,7 +35,7 @@ export default function Home() {
 
       <section className="relative overflow-hidden border-b border-border/70">
         <div className="study-grid absolute inset-0 opacity-55" />
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.35fr_.65fr] lg:items-end">
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
           <div>
             <Badge variant="secondary" className="mb-5 rounded-full px-3 py-1">
               {totalLessons} 节中文短课 · 持续更新
@@ -47,19 +48,31 @@ export default function Home() {
               KMP、HarmonyOS、Python、Rust 与 Flutter 渐进式学习档案。每课只聚焦一个主题，配有最小示例、动手练习和参考答案。
             </p>
           </div>
-          <div className="rounded-2xl border border-border/70 bg-card/80 p-5 shadow-sm backdrop-blur">
-            <div className="flex items-center gap-3">
-              <span className="grid size-10 place-items-center rounded-xl bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
-                <Clock3 className="size-5" />
-              </span>
-              <div>
-                <p className="text-sm font-medium">工作日学习节奏</p>
-                <p className="text-xs text-muted-foreground">周一至周五 · 09:00</p>
-              </div>
+          <div className="space-y-4">
+            <div className="overflow-hidden rounded-2xl border border-border/70 bg-card shadow-lg">
+              <Image
+                src="/og.png"
+                alt="KMP、HarmonyOS、Python、Rust 与 Flutter 五条渐进式学习路线"
+                width={1200}
+                height={630}
+                priority
+                className="h-auto w-full"
+              />
             </div>
-            <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              五条路线同步更新，周末休息，并保留完整学习历史。
-            </p>
+            <div className="rounded-2xl border border-border/70 bg-card/80 p-5 shadow-sm backdrop-blur">
+              <div className="flex items-center gap-3">
+                <span className="grid size-10 place-items-center rounded-xl bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
+                  <Clock3 className="size-5" />
+                </span>
+                <div>
+                  <p className="text-sm font-medium">工作日学习节奏</p>
+                  <p className="text-xs text-muted-foreground">周一至周五 · 09:00</p>
+                </div>
+              </div>
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">
+                五条路线同步更新，周末休息，并保留完整学习历史。
+              </p>
+            </div>
           </div>
         </div>
       </section>
