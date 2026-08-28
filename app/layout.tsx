@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     default: '渐进式编程课',
     template: '%s · 渐进式编程课',
   },
-  description: '每天一节中文短课，持续学习 Kotlin Multiplatform 与 HarmonyOS 开发。',
+  description: '工作日每天一节中文短课，持续学习 KMP、HarmonyOS、Python、Rust 与 Flutter。',
   openGraph: {
     title: '渐进式编程课',
-    description: '每天一节中文短课，持续学习 KMP 与 HarmonyOS。',
+    description: '工作日每天一节中文短课，持续学习 KMP、HarmonyOS、Python、Rust 与 Flutter。',
     url: '/',
     siteName: '渐进式编程课',
     locale: 'zh_CN',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '渐进式编程课',
-    description: '每天一节中文短课，持续学习 KMP 与 HarmonyOS。',
+    description: '工作日每天一节中文短课，持续学习 KMP、HarmonyOS、Python、Rust 与 Flutter。',
     images: ['/og.png'],
   },
 };

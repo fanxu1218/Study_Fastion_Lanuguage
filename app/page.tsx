@@ -24,10 +24,6 @@ export default function Home() {
       lessons: lessons.length,
       latest: latest?.title.replace(/^第\s*\d+\s*课[:：]?\s*/, '') ?? '即将更新',
       updated: latest?.displayDate ?? '',
-      accent: slug === 'kmp' ? 'bg-indigo-600' : 'bg-rose-600',
-      surface: slug === 'kmp'
-        ? 'from-indigo-50 to-white dark:from-indigo-950/35 dark:to-card'
-        : 'from-rose-50 to-white dark:from-rose-950/35 dark:to-card',
     };
   });
   const totalLessons = tracks.reduce((total, track) => total + track.lessons, 0);
@@ -48,7 +44,7 @@ export default function Home() {
               <span className="text-primary">积累成真正的技术栈。</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              KMP 与 HarmonyOS 渐进式学习档案。每课只聚焦一个主题，配有最小示例、动手练习和参考答案。
+              KMP、HarmonyOS、Python、Rust 与 Flutter 渐进式学习档案。每课只聚焦一个主题，配有最小示例、动手练习和参考答案。
             </p>
           </div>
           <div className="rounded-2xl border border-border/70 bg-card/80 p-5 shadow-sm backdrop-blur">
@@ -57,12 +53,12 @@ export default function Home() {
                 <Clock3 className="size-5" />
               </span>
               <div>
-                <p className="text-sm font-medium">日更学习节奏</p>
-                <p className="text-xs text-muted-foreground">鸿蒙 09:00 · KMP 10:00</p>
+                <p className="text-sm font-medium">工作日学习节奏</p>
+                <p className="text-xs text-muted-foreground">周一至周五 · 09:00</p>
               </div>
             </div>
             <p className="mt-4 text-sm leading-6 text-muted-foreground">
-              新课程会自动归档到对应路线，保留完整学习历史。
+              五条路线同步更新，周末休息，并保留完整学习历史。
             </p>
           </div>
         </div>
@@ -74,7 +70,7 @@ export default function Home() {
             <p className="text-sm font-medium text-primary">学习路线</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">从最新一课继续</h2>
           </div>
-          <p className="hidden text-sm text-muted-foreground sm:block">后续语言会以新的路线加入这里</p>
+          <p className="hidden text-sm text-muted-foreground sm:block">五条路线，每个工作日各推进一课</p>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-2">

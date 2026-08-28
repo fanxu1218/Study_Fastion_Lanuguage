@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Code2, Search } from 'lucide-react';
 
+import { trackConfigs, type TrackSlug } from '@/lib/lessons';
+
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-border/70 bg-background/90 backdrop-blur-xl">
@@ -11,9 +13,12 @@ export function SiteHeader() {
           </span>
           <span>渐进式编程课</span>
         </Link>
-        <nav className="ml-auto hidden items-center gap-5 text-sm sm:flex" aria-label="主要导航">
-          <Link href="/kmp" className="text-muted-foreground transition-colors hover:text-foreground">KMP</Link>
-          <Link href="/harmonyos" className="text-muted-foreground transition-colors hover:text-foreground">鸿蒙</Link>
+        <nav className="ml-auto hidden items-center gap-4 text-sm lg:flex" aria-label="主要导航">
+          {(Object.keys(trackConfigs) as TrackSlug[]).map((track) => (
+            <Link key={track} href={`/${track}`} className="text-muted-foreground transition-colors hover:text-foreground">
+              {trackConfigs[track].shortName}
+            </Link>
+          ))}
         </nav>
         <Link
           href="/search"

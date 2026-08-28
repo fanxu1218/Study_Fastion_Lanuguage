@@ -31,7 +31,6 @@ export default async function TrackPage({ params }: TrackPageProps) {
   const config = trackConfigs[track];
   const lessons = getLessons(track);
   const latest = lessons.at(-1);
-  const accent = track === 'kmp' ? 'from-indigo-600 to-violet-600' : 'from-rose-600 to-orange-500';
 
   return (
     <main className="min-h-screen">
@@ -47,7 +46,7 @@ export default async function TrackPage({ params }: TrackPageProps) {
               <h1 className="text-4xl font-semibold tracking-[-0.035em] sm:text-5xl">{config.name}</h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">{config.description}</p>
             </div>
-            <div className={`rounded-2xl bg-gradient-to-br ${accent} p-5 text-white shadow-lg`}>
+            <div className={`rounded-2xl bg-gradient-to-br ${config.gradient} p-5 text-white shadow-lg`}>
               <div className="flex items-center gap-8">
                 <div>
                   <p className="text-3xl font-semibold">{lessons.length}</p>

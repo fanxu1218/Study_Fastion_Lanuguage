@@ -7,7 +7,9 @@ export const trackConfigs = {
     shortName: 'KMP',
     eyebrow: '跨平台开发',
     description: '从共享源码集一路学到 Compose Multiplatform、ViewModel 与 Flow。',
-    color: 'indigo',
+    accent: 'bg-indigo-600',
+    surface: 'from-indigo-50 to-white dark:from-indigo-950/35 dark:to-card',
+    gradient: 'from-indigo-600 to-violet-600',
   },
   harmonyos: {
     slug: 'harmonyos',
@@ -15,7 +17,39 @@ export const trackConfigs = {
     shortName: '鸿蒙',
     eyebrow: '原生应用开发',
     description: '从 ArkUI 状态管理逐步进阶到数据服务、异步流程与 Hypium 测试。',
-    color: 'rose',
+    accent: 'bg-rose-600',
+    surface: 'from-rose-50 to-white dark:from-rose-950/35 dark:to-card',
+    gradient: 'from-rose-600 to-orange-500',
+  },
+  python: {
+    slug: 'python',
+    name: 'Python',
+    shortName: 'Python',
+    eyebrow: '通用编程',
+    description: '从语法与数据结构开始，逐步学习函数、模块、自动化与实际项目。',
+    accent: 'bg-amber-500',
+    surface: 'from-amber-50 to-white dark:from-amber-950/35 dark:to-card',
+    gradient: 'from-amber-500 to-yellow-500',
+  },
+  rust: {
+    slug: 'rust',
+    name: 'Rust',
+    shortName: 'Rust',
+    eyebrow: '系统编程',
+    description: '从变量与类型开始，逐步掌握所有权、错误处理、并发与工程实践。',
+    accent: 'bg-orange-600',
+    surface: 'from-orange-50 to-white dark:from-orange-950/35 dark:to-card',
+    gradient: 'from-orange-600 to-red-600',
+  },
+  flutter: {
+    slug: 'flutter',
+    name: 'Flutter',
+    shortName: 'Flutter',
+    eyebrow: '跨平台 UI',
+    description: '从 Widget 树开始，逐步学习布局、状态、导航、网络与应用架构。',
+    accent: 'bg-cyan-600',
+    surface: 'from-cyan-50 to-white dark:from-cyan-950/35 dark:to-card',
+    gradient: 'from-cyan-600 to-blue-600',
   },
 } as const;
 
@@ -75,7 +109,7 @@ const lessons = Object.entries(markdownModules)
   .filter(([path]) => !path.endsWith('/README.md'))
   .map(([path, rawContent]): Lesson => {
     const normalizedPath = path.replace(/\\/g, '/');
-    const match = normalizedPath.match(/content\/(kmp|harmonyos)\/([^/]+)\.md$/);
+    const match = normalizedPath.match(/content\/(kmp|harmonyos|python|rust|flutter)\/([^/]+)\.md$/);
     if (!match) throw new Error(`无法识别课程路径：${path}`);
 
     const track = match[1] as TrackSlug;
