@@ -2,7 +2,22 @@ import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
-const tracks = ['kmp', 'harmonyos', 'python', 'rust', 'flutter'];
+const tracks = [
+  'kmp',
+  'harmonyos',
+  'python',
+  'rust',
+  'flutter',
+  'html5',
+  'react',
+  'react-native',
+  'vue',
+  'cpp',
+  'java',
+  'kotlin',
+  'csharp',
+  'golang',
+];
 let hasError = false;
 
 for (const track of tracks) {

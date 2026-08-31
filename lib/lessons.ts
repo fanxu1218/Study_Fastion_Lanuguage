@@ -51,6 +51,96 @@ export const trackConfigs = {
     surface: 'from-cyan-50 to-white dark:from-cyan-950/35 dark:to-card',
     gradient: 'from-cyan-600 to-blue-600',
   },
+  html5: {
+    slug: 'html5',
+    name: 'HTML5',
+    shortName: 'HTML5',
+    eyebrow: '网页基础',
+    description: '从语义化文档结构开始，逐步学习表单、媒体、可访问性与浏览器 API。',
+    accent: 'bg-emerald-600',
+    surface: 'from-emerald-50 to-white dark:from-emerald-950/35 dark:to-card',
+    gradient: 'from-emerald-600 to-teal-500',
+  },
+  react: {
+    slug: 'react',
+    name: 'React',
+    shortName: 'React',
+    eyebrow: 'Web 界面开发',
+    description: '从组件与 JSX 开始，逐步掌握 Props、State、Hooks 与前端工程实践。',
+    accent: 'bg-sky-600',
+    surface: 'from-sky-50 to-white dark:from-sky-950/35 dark:to-card',
+    gradient: 'from-sky-600 to-blue-500',
+  },
+  'react-native': {
+    slug: 'react-native',
+    name: 'React Native',
+    shortName: 'React Native',
+    eyebrow: '跨平台移动开发',
+    description: '从原生基础组件开始，逐步学习布局、交互、导航、网络与移动端适配。',
+    accent: 'bg-blue-600',
+    surface: 'from-blue-50 to-white dark:from-blue-950/35 dark:to-card',
+    gradient: 'from-blue-600 to-indigo-500',
+  },
+  vue: {
+    slug: 'vue',
+    name: 'Vue',
+    shortName: 'Vue',
+    eyebrow: '渐进式前端框架',
+    description: '从应用实例与模板开始，逐步学习响应式状态、组件、路由与组合式 API。',
+    accent: 'bg-green-600',
+    surface: 'from-green-50 to-white dark:from-green-950/35 dark:to-card',
+    gradient: 'from-green-600 to-emerald-500',
+  },
+  cpp: {
+    slug: 'cpp',
+    name: 'C++',
+    shortName: 'C++',
+    eyebrow: '高性能编程',
+    description: '从程序入口与类型开始，逐步学习函数、类、资源管理、STL 与现代 C++。',
+    accent: 'bg-slate-700',
+    surface: 'from-slate-100 to-white dark:from-slate-900/55 dark:to-card',
+    gradient: 'from-slate-700 to-blue-700',
+  },
+  java: {
+    slug: 'java',
+    name: 'Java',
+    shortName: 'Java',
+    eyebrow: '企业级开发',
+    description: '从类与程序入口开始，逐步学习面向对象、集合、异常、并发与工程实践。',
+    accent: 'bg-red-600',
+    surface: 'from-red-50 to-white dark:from-red-950/35 dark:to-card',
+    gradient: 'from-red-600 to-orange-500',
+  },
+  kotlin: {
+    slug: 'kotlin',
+    name: 'Kotlin',
+    shortName: 'Kotlin',
+    eyebrow: '现代 JVM 开发',
+    description: '从变量与类型推断开始，逐步学习函数、空安全、集合、协程与应用开发。',
+    accent: 'bg-violet-600',
+    surface: 'from-violet-50 to-white dark:from-violet-950/35 dark:to-card',
+    gradient: 'from-violet-600 to-fuchsia-500',
+  },
+  csharp: {
+    slug: 'csharp',
+    name: 'C#',
+    shortName: 'C#',
+    eyebrow: '.NET 开发',
+    description: '从程序入口与类型开始，逐步学习面向对象、集合、异步与 .NET 应用实践。',
+    accent: 'bg-purple-600',
+    surface: 'from-purple-50 to-white dark:from-purple-950/35 dark:to-card',
+    gradient: 'from-purple-600 to-indigo-600',
+  },
+  golang: {
+    slug: 'golang',
+    name: 'Go（Golang）',
+    shortName: 'Go',
+    eyebrow: '云原生开发',
+    description: '从 main 包开始，逐步学习函数、结构体、接口、并发与服务端工程实践。',
+    accent: 'bg-teal-600',
+    surface: 'from-teal-50 to-white dark:from-teal-950/35 dark:to-card',
+    gradient: 'from-teal-600 to-cyan-500',
+  },
 } as const;
 
 export type TrackSlug = keyof typeof trackConfigs;
@@ -109,10 +199,10 @@ const lessons = Object.entries(markdownModules)
   .filter(([path]) => !path.endsWith('/README.md'))
   .map(([path, rawContent]): Lesson => {
     const normalizedPath = path.replace(/\\/g, '/');
-    const match = normalizedPath.match(/content\/(kmp|harmonyos|python|rust|flutter)\/([^/]+)\.md$/);
-    if (!match) throw new Error(`无法识别课程路径：${path}`);
+    const match = normalizedPath.match(/content\/([^/]+)\/([^/]+)\.md$/);
+    if (!match || !isTrackSlug(match[1])) throw new Error(`无法识别课程路径：${path}`);
 
-    const track = match[1] as TrackSlug;
+    const track = match[1];
     const slug = match[2];
     const content = rawContent.replace(/\r\n/g, '\n').trimEnd();
     const title = cleanInline(content.match(/^#\s+(.+)$/m)?.[1] ?? slug);
