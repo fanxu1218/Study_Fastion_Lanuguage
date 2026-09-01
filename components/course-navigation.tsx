@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -38,9 +39,11 @@ export function CourseNavigation() {
             sideOffset={10}
             className="w-[min(42rem,calc(100vw-2rem))] p-2"
           >
-            <DropdownMenuLabel className="px-2 py-2 text-sm text-foreground">
-              28 条路线 · 5 大类别
-            </DropdownMenuLabel>
+            <DropdownMenuGroup>
+              <DropdownMenuLabel className="px-2 py-2 text-sm text-foreground">
+                28 条路线 · 5 大类别
+              </DropdownMenuLabel>
+            </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <div className="grid gap-1 p-1 md:grid-cols-2">
               {trackGroups.map((group) => (
