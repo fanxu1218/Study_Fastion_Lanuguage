@@ -25,6 +25,12 @@ const tracks = [
   'cocos-creator',
   'unreal-engine',
   'spine',
+  'c4d',
+  'blender',
+  'photoshop',
+  'final-cut-pro',
+  'motion',
+  'davinci-resolve',
 ];
 let hasError = false;
 

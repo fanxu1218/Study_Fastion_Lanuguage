@@ -13,10 +13,10 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { getLessons, trackConfigs, type TrackSlug } from '@/lib/lessons';
+import { getLessons, trackConfigs, trackGroups, type TrackSlug } from '@/lib/lessons';
 
 export default function Home() {
-  const tracks = (Object.keys(trackConfigs) as TrackSlug[]).map((slug) => {
+  const trackEntries = (Object.keys(trackConfigs) as TrackSlug[]).map((slug) => {
     const config = trackConfigs[slug];
     const lessons = getLessons(slug);
     const latest = lessons.at(-1);
@@ -27,7 +27,8 @@ export default function Home() {
       updated: latest?.displayDate ?? '',
     };
   });
-  const totalLessons = tracks.reduce((total, track) => total + track.lessons, 0);
+  const tracks = new Map(trackEntries.map((track) => [track.slug, track]));
+  const totalLessons = trackEntries.reduce((total, track) => total + track.lessons, 0);
 
   return (
     <main className="min-h-screen bg-background">
@@ -45,14 +46,14 @@ export default function Home() {
               <span className="text-primary">积累成真正的技术栈。</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              从移动端、Web、游戏开发到服务端与系统编程的 22 条渐进式学习路线。每课只聚焦一个主题，配有最小示例、动手练习和参考答案。
+              28 条路线分为编程语言、应用与跨平台、Web、游戏引擎与动画、设计与影视后期。每课只聚焦一个主题，配有最小示例、动手练习和参考答案。
             </p>
           </div>
           <div className="space-y-4">
             <div className="overflow-hidden rounded-2xl border border-border/70 bg-card shadow-lg">
               <Image
-                src="/og-v4.png"
-                alt="二十二条渐进式编程学习路线"
+                src="/og-v5.png"
+                alt="二十八条渐进式编程与数字创作学习路线"
                 width={1200}
                 height={630}
                 priority
@@ -70,7 +71,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="mt-4 text-sm leading-6 text-muted-foreground">
-                二十二条路线同步更新，周末休息，并保留完整学习历史。
+                二十八条路线同步更新，周末休息，并保留完整学习历史。
               </p>
             </div>
           </div>
@@ -83,43 +84,60 @@ export default function Home() {
             <p className="text-sm font-medium text-primary">学习路线</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">从最新一课继续</h2>
           </div>
-          <p className="hidden text-sm text-muted-foreground sm:block">二十二条路线，每个工作日各推进一课</p>
+          <p className="hidden text-sm text-muted-foreground sm:block">二十八条路线，每个工作日各推进一课</p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-2">
-          {tracks.map((track) => (
-            <Card key={track.slug} className={`bg-gradient-to-br ${track.surface} py-0 shadow-sm`}>
-              <CardHeader className="gap-4 p-6 sm:p-7">
-                <div className="flex items-start justify-between gap-4">
-                  <span className={`grid size-12 place-items-center rounded-2xl ${track.accent} text-white shadow-sm`}>
-                    <BookOpen className="size-5" />
-                  </span>
-                  <Badge variant="outline" className="bg-background/70">{track.lessons} 节</Badge>
-                </div>
+        <div className="space-y-14">
+          {trackGroups.map((group) => (
+            <section key={group.slug} aria-labelledby={`group-${group.slug}`}>
+              <div className="mb-5 flex flex-col gap-2 border-l-4 border-primary pl-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                    {track.eyebrow}
-                  </p>
-                  <CardTitle className="text-2xl">{track.name}</CardTitle>
-                  <CardDescription className="mt-2 max-w-xl text-sm leading-6">
-                    {track.description}
-                  </CardDescription>
+                  <h3 id={`group-${group.slug}`} className="text-xl font-semibold tracking-tight sm:text-2xl">{group.name}</h3>
+                  <p className="mt-1 text-sm leading-6 text-muted-foreground">{group.description}</p>
                 </div>
-              </CardHeader>
-              <CardContent className="px-6 pb-6 sm:px-7">
-                <div className="rounded-xl border border-border/70 bg-background/75 p-4">
-                  <p className="text-xs text-muted-foreground">最新课程 · {track.updated}</p>
-                  <p className="mt-1 text-sm font-medium">{track.latest}</p>
-                </div>
-              </CardContent>
-              <CardFooter className="justify-between border-border/70 bg-background/50 px-6 py-4 sm:px-7">
-                <span className="text-xs text-muted-foreground">从第 1 课开始，也可以接着学</span>
-                <NativeLink href={`/${track.slug}`} className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                  查看{track.shortName}课程
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-                </NativeLink>
-              </CardFooter>
-            </Card>
+                <Badge variant="secondary" className="w-fit rounded-full">{group.tracks.length} 条路线</Badge>
+              </div>
+              <div className="grid gap-5 lg:grid-cols-2">
+                {group.tracks.map((slug) => {
+                  const track = tracks.get(slug);
+                  if (!track) return null;
+                  return (
+                    <Card key={track.slug} className={`bg-gradient-to-br ${track.surface} py-0 shadow-sm`}>
+                      <CardHeader className="gap-4 p-6 sm:p-7">
+                        <div className="flex items-start justify-between gap-4">
+                          <span className={`grid size-12 place-items-center rounded-2xl ${track.accent} text-white shadow-sm`}>
+                            <BookOpen className="size-5" />
+                          </span>
+                          <Badge variant="outline" className="bg-background/70">{track.lessons} 节</Badge>
+                        </div>
+                        <div>
+                          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                            {track.eyebrow}
+                          </p>
+                          <CardTitle className="text-2xl">{track.name}</CardTitle>
+                          <CardDescription className="mt-2 max-w-xl text-sm leading-6">
+                            {track.description}
+                          </CardDescription>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="px-6 pb-6 sm:px-7">
+                        <div className="rounded-xl border border-border/70 bg-background/75 p-4">
+                          <p className="text-xs text-muted-foreground">最新课程 · {track.updated}</p>
+                          <p className="mt-1 text-sm font-medium">{track.latest}</p>
+                        </div>
+                      </CardContent>
+                      <CardFooter className="justify-between border-border/70 bg-background/50 px-6 py-4 sm:px-7">
+                        <span className="text-xs text-muted-foreground">从第 1 课开始，也可以接着学</span>
+                        <NativeLink href={`/${track.slug}`} className="group inline-flex items-center gap-1.5 text-sm font-medium text-primary">
+                          查看{track.shortName}课程
+                          <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+                        </NativeLink>
+                      </CardFooter>
+                    </Card>
+                  );
+                })}
+              </div>
+            </section>
           ))}
         </div>
       </section>

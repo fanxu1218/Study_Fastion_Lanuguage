@@ -221,9 +221,107 @@ export const trackConfigs = {
     surface: 'from-emerald-50 to-white dark:from-emerald-950/35 dark:to-card',
     gradient: 'from-emerald-700 to-lime-600',
   },
+  c4d: {
+    slug: 'c4d',
+    name: 'C4D（Cinema 4D）',
+    shortName: 'C4D',
+    eyebrow: '三维设计与动画',
+    description: '从对象管理器和基础对象开始，逐步学习建模、材质、灯光、动画与渲染。',
+    accent: 'bg-blue-800',
+    surface: 'from-blue-50 to-white dark:from-blue-950/35 dark:to-card',
+    gradient: 'from-blue-800 to-indigo-600',
+  },
+  blender: {
+    slug: 'blender',
+    name: 'Blender',
+    shortName: 'Blender',
+    eyebrow: '开源三维创作',
+    description: '从对象模式和场景管理开始，逐步学习建模、材质、动画、灯光与渲染。',
+    accent: 'bg-orange-700',
+    surface: 'from-orange-50 to-white dark:from-orange-950/35 dark:to-card',
+    gradient: 'from-orange-700 to-amber-500',
+  },
+  photoshop: {
+    slug: 'photoshop',
+    name: 'Photoshop（PS）',
+    shortName: 'Photoshop',
+    eyebrow: '图像设计与处理',
+    description: '从图层与非破坏编辑开始，逐步学习选区、蒙版、调色、修图与合成。',
+    accent: 'bg-sky-700',
+    surface: 'from-sky-50 to-white dark:from-sky-950/35 dark:to-card',
+    gradient: 'from-sky-700 to-cyan-500',
+  },
+  'final-cut-pro': {
+    slug: 'final-cut-pro',
+    name: 'Final Cut Pro',
+    shortName: 'Final Cut Pro',
+    eyebrow: '专业视频剪辑',
+    description: '从资源库、事件与项目开始，逐步学习素材管理、磁性时间线、音频、调色与交付。',
+    accent: 'bg-fuchsia-700',
+    surface: 'from-fuchsia-50 to-white dark:from-fuchsia-950/35 dark:to-card',
+    gradient: 'from-fuchsia-700 to-purple-600',
+  },
+  motion: {
+    slug: 'motion',
+    name: 'Motion',
+    shortName: 'Motion',
+    eyebrow: '动态图形与特效',
+    description: '从项目、群组与图层开始，逐步学习关键帧、行为、粒子、文字动画与模板。',
+    accent: 'bg-violet-700',
+    surface: 'from-violet-50 to-white dark:from-violet-950/35 dark:to-card',
+    gradient: 'from-violet-700 to-pink-600',
+  },
+  'davinci-resolve': {
+    slug: 'davinci-resolve',
+    name: 'DaVinci Resolve',
+    shortName: 'DaVinci Resolve',
+    eyebrow: '剪辑调色与后期',
+    description: '从项目、媒体池与时间线开始，逐步学习剪辑、Fusion、调色、Fairlight 与交付。',
+    accent: 'bg-red-700',
+    surface: 'from-red-50 to-white dark:from-red-950/35 dark:to-card',
+    gradient: 'from-red-700 to-blue-700',
+  },
 } as const;
 
 export type TrackSlug = keyof typeof trackConfigs;
+
+export const trackGroups = [
+  {
+    slug: 'languages',
+    name: '编程语言',
+    description: '建立语法、类型、工程与并发等可迁移的编程基本功。',
+    tracks: ['python', 'rust', 'cpp', 'java', 'kotlin', 'csharp', 'golang', 'objective-c', 'swift'],
+  },
+  {
+    slug: 'app-development',
+    name: '应用与跨平台开发',
+    description: '面向移动端、桌面端和多平台应用的界面、状态与工程实践。',
+    tracks: ['kmp', 'harmonyos', 'flutter', 'react-native', 'android', 'swiftui'],
+  },
+  {
+    slug: 'web-development',
+    name: 'Web 开发',
+    description: '从网页语义基础逐步进入组件化和现代前端应用开发。',
+    tracks: ['html5', 'react', 'vue'],
+  },
+  {
+    slug: 'game-development',
+    name: '游戏引擎与动画',
+    description: '学习实时场景、游戏系统、资源管线与二维骨骼动画。',
+    tracks: ['unity', 'cocos-creator', 'unreal-engine', 'spine'],
+  },
+  {
+    slug: 'design-post-production',
+    name: '设计与影视后期',
+    description: '覆盖三维创作、图像设计、视频剪辑、动态图形与专业调色。',
+    tracks: ['c4d', 'blender', 'photoshop', 'final-cut-pro', 'motion', 'davinci-resolve'],
+  },
+] as const satisfies ReadonlyArray<{
+  slug: string;
+  name: string;
+  description: string;
+  tracks: readonly TrackSlug[];
+}>;
 
 export interface Lesson {
   track: TrackSlug;
