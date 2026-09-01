@@ -17,6 +17,10 @@ const tracks = [
   'kotlin',
   'csharp',
   'golang',
+  'android',
+  'objective-c',
+  'swift',
+  'swiftui',
 ];
 let hasError = false;
 

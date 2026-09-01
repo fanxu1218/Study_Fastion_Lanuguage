@@ -18,21 +18,21 @@ export const metadata: Metadata = {
     default: '渐进式编程课',
     template: '%s · 渐进式编程课',
   },
-  description: '十四条编程路线在每个工作日同步更新，用中文短课持续积累技术栈。',
+  description: '十八条编程路线在每个工作日同步更新，用中文短课持续积累技术栈。',
   openGraph: {
     title: '渐进式编程课',
-    description: '十四条编程路线在每个工作日同步更新，用中文短课持续积累技术栈。',
+    description: '十八条编程路线在每个工作日同步更新，用中文短课持续积累技术栈。',
     url: '/',
     siteName: '渐进式编程课',
     locale: 'zh_CN',
     type: 'website',
-    images: [{ url: '/og-v2.png', width: 1200, height: 630, alt: '十四条路线渐进式编程课' }],
+    images: [{ url: '/og-v3.png', width: 1200, height: 630, alt: '十八条路线渐进式编程课' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: '渐进式编程课',
-    description: '十四条编程路线在每个工作日同步更新，用中文短课持续积累技术栈。',
-    images: ['/og-v2.png'],
+    description: '十八条编程路线在每个工作日同步更新，用中文短课持续积累技术栈。',
+    images: ['/og-v3.png'],
   },
 };
 
