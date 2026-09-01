@@ -21,6 +21,10 @@ const tracks = [
   'objective-c',
   'swift',
   'swiftui',
+  'unity',
+  'cocos-creator',
+  'unreal-engine',
+  'spine',
 ];
 let hasError = false;
 

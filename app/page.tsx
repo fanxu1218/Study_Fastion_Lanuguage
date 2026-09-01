@@ -45,14 +45,14 @@ export default function Home() {
               <span className="text-primary">积累成真正的技术栈。</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              从移动端、Web 到服务端与系统编程的 18 条渐进式学习路线。每课只聚焦一个主题，配有最小示例、动手练习和参考答案。
+              从移动端、Web、游戏开发到服务端与系统编程的 22 条渐进式学习路线。每课只聚焦一个主题，配有最小示例、动手练习和参考答案。
             </p>
           </div>
           <div className="space-y-4">
             <div className="overflow-hidden rounded-2xl border border-border/70 bg-card shadow-lg">
               <Image
-                src="/og-v3.png"
-                alt="十八条渐进式编程学习路线"
+                src="/og-v4.png"
+                alt="二十二条渐进式编程学习路线"
                 width={1200}
                 height={630}
                 priority
@@ -70,7 +70,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="mt-4 text-sm leading-6 text-muted-foreground">
-                十八条路线同步更新，周末休息，并保留完整学习历史。
+                二十二条路线同步更新，周末休息，并保留完整学习历史。
               </p>
             </div>
           </div>
@@ -83,7 +83,7 @@ export default function Home() {
             <p className="text-sm font-medium text-primary">学习路线</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">从最新一课继续</h2>
           </div>
-          <p className="hidden text-sm text-muted-foreground sm:block">十八条路线，每个工作日各推进一课</p>
+          <p className="hidden text-sm text-muted-foreground sm:block">二十二条路线，每个工作日各推进一课</p>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-2">
