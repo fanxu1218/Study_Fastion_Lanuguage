@@ -5,3 +5,4 @@
 1. [2026-09-01：GameObject 与 MonoBehaviour](2026-09-01-GameObject与MonoBehaviour.md)——认识 Unity 的游戏对象、组件和脚本生命周期入口。
 2. [2026-09-02：Transform局部变换](./2026-09-02-Transform局部变换.md)——相对父对象摆放一个游戏物体。
 3. [2026-09-03：Update与按时间旋转](./2026-09-03-Update与按时间旋转.md)——让 Cube 按每秒固定角度连续转动。
+4. [2026-09-04：SerializeField暴露旋转速度](./2026-09-04-SerializeField暴露旋转速度.md)——让两个 Cube 使用不同转速而无需复制脚本。
