@@ -8,3 +8,4 @@
 4. [2026-09-04：LinearLayout纵向组合](./2026-09-04-LinearLayout纵向组合.md)——把提示文字和按钮放在同一个页面。
 5. [2026-09-07：TextView与资源字符串](./2026-09-07-TextView与资源字符串.md)——在 XML 页面显示可本地化的课程标题。
 6. [2026-09-08：findViewById连接视图](./2026-09-08-findViewById连接视图.md)——从 Activity 找到 XML 视图并更新文字。
+7. [2026-09-09：ViewBinding类型安全访问视图](./2026-09-09-ViewBinding类型安全访问视图.md)——用生成的绑定类访问布局视图。
