@@ -10,3 +10,4 @@
 6. [2026-09-08：scheduleOnce延迟执行](./2026-09-08-scheduleOnce延迟执行.md)——让一次动作在指定延迟后完成。
 7. [2026-09-09：unschedule取消延迟回调](./2026-09-09-unschedule取消延迟回调.md)——在状态提前改变时取消尚未执行的任务。
 8. [2026-09-10：unscheduleAllCallbacks生命周期清理](./2026-09-10-unscheduleAllCallbacks生命周期清理.md)——在组件禁用时统一清理自定义调度。
+9. [2026-09-11：schedule重复任务](./2026-09-11-schedule重复任务.md)——按固定间隔注册可清理的重复任务。
