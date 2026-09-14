@@ -34,4 +34,3 @@ class LessonViewModel : ViewModel() {
 ## 与上一课的联系
 
 上一课让按钮切换运行状态；本课把该状态移到配置变更可存活的所有者。
-

@@ -34,4 +34,3 @@ stop(): void { this.unschedule(this.tick) }
 ## 与上一课的联系
 
 上一课用 `schedule` 建立重复任务；本课在生命周期结束时精确撤销它。
-

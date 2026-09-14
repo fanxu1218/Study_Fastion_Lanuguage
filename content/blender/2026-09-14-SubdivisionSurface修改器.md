@@ -35,4 +35,3 @@
 ## 参考资料
 
 - [Blender 5.2 LTS 官方手册：Modifiers Introduction](https://docs.blender.org/manual/en/latest/modeling/modifiers/introduction.html)（2026-09-14 核对）。
-

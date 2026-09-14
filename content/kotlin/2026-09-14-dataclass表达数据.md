@@ -33,4 +33,3 @@ println(longer)
 ## 与上一课的联系
 
 上一课用 `associateBy` 建立索引；本课定义索引中元素的数据结构。
-

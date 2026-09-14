@@ -35,4 +35,3 @@ Subdivision Surface 根据低模笼架生成平滑表面；细分级别越高，
 ## 参考资料
 
 - [Maxon Cinema 4D 2026 官方帮助：Weight Subdivision Surface](https://help.maxon.net/c4d/2026/en-us/Content/html/TOOLSETSDSWEIGHT.html?TocPath=Mesh+menu%7CWeight+Subdivision+Surface%7C_____0)（2026-09-14 核对）。
-
