@@ -1,84 +1,95 @@
-# 第 9 课：router 参数与 aboutToAppear
+# 第 9 课：NavPathStack 参数传递
 
 - 日期：2026-07-14
-- 知识点：`router.getParams()`、`aboutToAppear()`
-- 适用场景：详情页读取列表页传来的 id、title、stockCode 等参数
+- 时效校验：2026-09-14（HarmonyOS API 20 SDK、华为官方 Navigation 文档）
+- 知识点：`NavPathInfo.param`、自定义路由表参数
+- 适用场景：详情页接收列表页传来的 id、title、stockCode 等参数
 
-承接上一课的跳转：列表页能够进入详情页后，这一课学习详情页如何读取上一页传来的参数。
+承接上一课的 `Navigation` 跳转：页面名称决定“去哪里”，`param` 决定“带什么数据过去”。
 
-## 1. `router.getParams()` 读取路由参数
+## 1. 发送端传入明确的数据模型
 
-上一页通过 `router.pushUrl({ params })` 传参，下一页通过 `router.getParams()` 读取。参数名就是页面之间的协议，必须保持一致。
-
-上一页传参：
+把跨页面字段集中在一个 class 中，发送端和接收端共同使用，避免字符串字段各写一套。
 
 ```ts
-router.pushUrl({
-  url: 'pages/DetailPage',
-  params: {
-    id: item.id,
-    title: item.title
+class DetailParams {
+  id: string = '';
+  title: string = '';
+
+  constructor(id: string, title: string) {
+    this.id = id;
+    this.title = title;
   }
+}
+
+this.pathStack.pushPath({
+  name: 'DetailPage',
+  param: new DetailParams(item.id, item.title)
 });
 ```
 
-详情页读取：
+## 2. 自定义路由表把参数交给目标组件
+
+`.navDestination()` 的 Builder 会收到页面名称和参数。目标组件直接接收参数，不再通过全局 `router.getParams` 和 `aboutToAppear()` 二次读取。
 
 ```ts
-import { router } from '@kit.ArkUI';
-
-interface DetailParams {
-  id: string;
-  title: string;
+@Builder
+pageBuilder(name: string, param: Object) {
+  if (name === 'DetailPage') {
+    DetailPage({ params: param as DetailParams })
+  }
 }
 
-@Entry
 @Component
 struct DetailPage {
-  @State id: string = '';
-  @State title: string = '';
-
-  aboutToAppear(): void {
-    const params = router.getParams() as DetailParams;
-    this.id = params.id;
-    this.title = params.title;
-  }
+  params: DetailParams = new DetailParams('', '');
 
   build() {
-    Column({ space: 12 }) {
-      Text(`id: ${this.id}`)
-        .fontSize(18)
-
-      Text(`title: ${this.title}`)
-        .fontSize(22)
+    NavDestination() {
+      Column({ space: 12 }) {
+        Text(`id: ${this.params.id}`)
+          .fontSize(18)
+        Text(`title: ${this.params.title}`)
+          .fontSize(22)
+      }
+      .width('100%')
+      .height('100%')
+      .justifyContent(FlexAlign.Center)
     }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center)
+    .title('详情')
   }
 }
 ```
 
-## 2. `aboutToAppear` 做页面进入前的数据准备
-
-`aboutToAppear()` 适合读取路由参数、初始化页面状态、发起页面所需的数据请求。`build()` 只描述 UI，不在里面写取参、请求或变量处理。
-
-```text
-pushUrl 传入 params
--> DetailPage aboutToAppear
--> getParams 读取协议参数
--> 写入 @State
--> build 根据状态渲染
-```
+使用系统路由表时，可在 `NavDestination.onReady()` 的 `NavDestinationContext.pathInfo.param` 中读取同一份参数；两种方案选一种，不要再混用旧的全局 router 取参链路。
 
 ## 3～5 分钟练习
 
-把列表项标题改成不同文本，例如 `UIAbility`、`@State`、`router`。点击不同项进入详情页，确认详情页显示的 `id` 和 `title` 与点击项一致。
+给 `DetailParams` 增加 `category: string`，从列表页传入分类，并在详情页显示它。
 
 ## 参考答案
 
-保持发送端和接收端字段完全一致：发送端使用 `id`、`title`，接收端 `DetailParams` 及赋值也使用 `id`、`title`。点击不同数据项时，详情页会得到对应值。
+```ts
+class DetailParams {
+  id: string = '';
+  title: string = '';
+  category: string = '';
+
+  constructor(id: string, title: string, category: string) {
+    this.id = id;
+    this.title = title;
+    this.category = category;
+  }
+}
+```
+
+发送端和接收端都使用这个模型，页面间协议就保持一致。
 
 ## 与上一课的联系
 
-上一课解决“跳到哪里”，这一课补全“带什么数据过去”以及“在什么生命周期读取”。
+上一课完成 `NavDestination` 入栈；这一课给入栈信息补上类型明确的业务参数。
+
+## 官方参考
+
+- [Navigation 页面路由](https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/arkts-navigation-jump)
+- [Navigation API 参考](https://developer.huawei.com/consumer/cn/doc/doccenter-references/api/ts-basic-components-navigation)

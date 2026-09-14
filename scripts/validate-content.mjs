@@ -32,6 +32,12 @@ const tracks = [
   'motion',
   'davinci-resolve',
 ];
+const harmonyDeprecatedApiPatterns = [
+  {
+    pattern: /\brouter\.(?:pushUrl|getParams|back)\s*\(/,
+    label: '全局 router.pushUrl/getParams/back',
+  },
+];
 let hasError = false;
 
 for (const track of tracks) {
@@ -56,6 +62,14 @@ for (const track of tracks) {
     dates.add(date);
 
     const content = await readFile(path.join(directory, file), 'utf8');
+    if (track === 'harmonyos') {
+      for (const deprecatedApi of harmonyDeprecatedApiPatterns) {
+        if (deprecatedApi.pattern.test(content)) {
+          console.error(`[${track}] 包含已废弃 API（${deprecatedApi.label}）：${file}`);
+          hasError = true;
+        }
+      }
+    }
     const title = content.match(/^#\s+(.+)$/m)?.[1];
     const lessonNumber = Number(title?.match(/第\s*(\d+)\s*课/)?.[1]);
     if (!title || !lessonNumber) {

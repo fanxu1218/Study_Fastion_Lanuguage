@@ -2,10 +2,11 @@
 
 本目录由“每日鸿蒙开发知识学习”任务维护。
 
-- 学习时间：每天 09:00（Asia/Shanghai）
-- 学习节奏：每天 1～2 个知识点，从基础到进阶
+- 学习时间：周一至周五 09:00（Asia/Shanghai）；法定节假日和调休休息日跳过
+- 学习节奏：每个有效更新日 1～2 个知识点，从基础到进阶
 - 笔记命名：`YYYY-MM-DD-主题.md`
 - 每日结构：知识点、适用场景、核心概念、最小示例、3～5 分钟练习、参考答案、与上一课的联系
+- 时效规则：发布前核对华为官方当前文档和目标 SDK；废弃接口不作为主教学方案，无法确认时停止发布
 
 ## 课程目录
 
@@ -16,10 +17,10 @@
 5. [2026-07-08：ForEach 与稳定 Key](2026-07-08-ForEach与稳定Key.md)——用数组生成 UI，并用业务唯一 id 标识列表项。
 6. [2026-07-09：List 与 ListItem](2026-07-09-List与ListItem.md)——组合数据遍历、行容器和可滚动列表。
 7. [2026-07-10：列表点击与选中状态](2026-07-10-列表点击与选中状态.md)——用 selectedId 驱动列表选中效果。
-8. [2026-07-13：router 页面跳转](2026-07-13-router页面跳转.md)——从列表页进入已注册的详情页面。
-9. [2026-07-14：router 参数与 aboutToAppear](2026-07-14-router参数与aboutToAppear.md)——传递路由参数并在页面生命周期中读取。
-10. [2026-07-15：router 返回与路由栈](2026-07-15-router返回与路由栈.md)——使用 back 保持正确的进入和返回语义。
-11. [2026-07-16：AppStorage 与 @StorageLink](2026-07-16-AppStorage与StorageLink.md)——让多个页面共享同一份应用级状态。
+8. [2026-07-13：Navigation 与 NavPathStack 页面跳转](2026-07-13-router页面跳转.md)——用组件导航从列表内容进入 NavDestination 详情内容。
+9. [2026-07-14：NavPathStack 参数传递](2026-07-14-router参数与aboutToAppear.md)——通过 NavPathInfo.param 传递类型明确的页面参数。
+10. [2026-07-15：NavPathStack 返回与路由栈](2026-07-15-router返回与路由栈.md)——使用 pop 保持正确的入栈和出栈语义。
+11. [2026-07-16：AppStorage 与 @StorageLink](2026-07-16-AppStorage与StorageLink.md)——在现行 Navigation 路由链路中共享应用级 UI 状态。
 12. [2026-07-17：@StorageProp 只读共享状态](2026-07-17-StorageProp只读共享状态.md)——让展示组件只订阅共享状态，不直接承担写入职责。
 13. [2026-07-20：PersistentStorage 状态持久化](2026-07-20-PersistentStorage状态持久化.md)——让共享状态在应用重启后仍能恢复。
 14. [2026-07-21：@Provide 与 @Consume 组件树共享状态](2026-07-21-Provide与Consume组件树共享状态.md)——在页面组件树内共享状态，避免多层 `@Prop` 透传。
