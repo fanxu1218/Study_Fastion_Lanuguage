@@ -12,3 +12,4 @@
 8. [2026-09-09：FlatList渲染长列表](./2026-09-09-FlatList渲染长列表.md)——按需渲染可能持续增长的课程列表。
 9. [2026-09-10：FlatList空状态](./2026-09-10-FlatList空状态.md)——在数据为空时显示明确提示。
 10. [2026-09-11：FlatList项目分隔](./2026-09-11-FlatList项目分隔.md)——为长列表添加统一项目分隔。
+11. [2026-09-14：FlatList稳定keyExtractor](./2026-09-14-FlatList稳定keyExtractor.md)——用稳定键保证 FlatList 项目复用正确。

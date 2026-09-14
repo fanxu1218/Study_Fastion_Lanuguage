@@ -11,3 +11,4 @@
 7. [2026-09-09：Environment注入共享模型](./2026-09-09-Environment注入共享模型.md)——把共享模型提供给更深层的子视图。
 8. [2026-09-10：Environment读取共享模型](./2026-09-10-Environment读取共享模型.md)——在后代视图中读取上层注入的同一实例。
 9. [2026-09-11：Bindable编辑环境模型](./2026-09-11-Bindable编辑环境模型.md)——让表单控件双向编辑共享模型。
+10. [2026-09-14：NavigationStack页面导航](./2026-09-14-NavigationStack页面导航.md)——使用 NavigationStack 构建列表到详情的导航。

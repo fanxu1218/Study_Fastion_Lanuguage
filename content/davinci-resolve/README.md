@@ -13,3 +13,4 @@
 7. [2026-09-09：Dynamic Zoom快速推拉](./2026-09-09-DynamicZoom快速推拉.md)——用起止框快速制作推近或拉远效果。
 8. [2026-09-10：Inspector裁切画面](./2026-09-10-Inspector裁切画面.md)——用四边裁切参数隐藏片段边缘干扰。
 9. [2026-09-11：Inspector调整片段透明度](./2026-09-11-Inspector调整片段透明度.md)——通过透明度混合上下两层画面。
+10. [2026-09-14：Composite Mode融合片段](./2026-09-14-CompositeMode融合片段.md)——用 Composite Mode 融合上下轨道片段。
