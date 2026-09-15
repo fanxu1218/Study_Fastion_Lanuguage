@@ -1,15 +1,15 @@
 # 第 9 课：NavPathStack 参数传递
 
 - 日期：2026-07-14
-- 时效校验：2026-09-14（HarmonyOS API 20 SDK、华为官方 Navigation 文档）
+- 时效校验：2026-09-15（HarmonyOS API 20 SDK、华为官方 Navigation 文档）
 - 知识点：`NavPathInfo.param`、自定义路由表参数
-- 适用场景：详情页接收列表页传来的 id、title、stockCode 等参数
+- 适用场景：让第 8 课的静态详情显示被点击列表项的数据
 
-承接上一课的 `Navigation` 跳转：页面名称决定“去哪里”，`param` 决定“带什么数据过去”。
+承接上一课：页面已经能跳转，但无论点击哪一行，详情都只显示固定文字。这一课只补上参数，不改变导航结构。
 
-## 1. 发送端传入明确的数据模型
+## 1. 定义页面之间的数据协议
 
-把跨页面字段集中在一个 class 中，发送端和接收端共同使用，避免字符串字段各写一套。
+`TopicItem` 仍负责列表数据；新增 `DetailParams`，只描述详情页真正需要的字段。
 
 ```ts
 class DetailParams {
@@ -21,16 +21,20 @@ class DetailParams {
     this.title = title;
   }
 }
+```
 
+## 2. 在第 8 课的三个位置传递参数
+
+先把点击事件中的 `pushPath()` 改成：
+
+```ts
 this.pathStack.pushPath({
   name: 'DetailPage',
   param: new DetailParams(item.id, item.title)
 });
 ```
 
-## 2. 自定义路由表把参数交给目标组件
-
-`.navDestination()` 的 Builder 会收到页面名称和参数。目标组件直接接收参数，不再通过全局 `router.getParams` 和 `aboutToAppear()` 二次读取。
+再让同一个 `pageBuilder` 把参数交给目标组件：
 
 ```ts
 @Builder
@@ -39,7 +43,11 @@ pageBuilder(name: string, param: Object) {
     DetailPage({ params: param as DetailParams })
   }
 }
+```
 
+最后把上一课的静态详情改成：
+
+```ts
 @Component
 struct DetailPage {
   params: DetailParams = new DetailParams('', '');
@@ -47,47 +55,30 @@ struct DetailPage {
   build() {
     NavDestination() {
       Column({ space: 12 }) {
+        Text(this.params.title)
+          .fontSize(24)
         Text(`id: ${this.params.id}`)
           .fontSize(18)
-        Text(`title: ${this.params.title}`)
-          .fontSize(22)
       }
-      .width('100%')
-      .height('100%')
-      .justifyContent(FlexAlign.Center)
     }
     .title('详情')
   }
 }
 ```
 
-使用系统路由表时，可在 `NavDestination.onReady()` 的 `NavDestinationContext.pathInfo.param` 中读取同一份参数；两种方案选一种，不要再混用旧的全局 router 取参链路。
+目标组件直接接收参数，不再使用旧的全局 `router.getParams` 和 `aboutToAppear()` 取参链路。
 
 ## 3～5 分钟练习
 
-给 `DetailParams` 增加 `category: string`，从列表页传入分类，并在详情页显示它。
+分别点击 `UIAbility` 和 `List`，确认详情标题与 id 都随点击项变化。
 
 ## 参考答案
 
-```ts
-class DetailParams {
-  id: string = '';
-  title: string = '';
-  category: string = '';
-
-  constructor(id: string, title: string, category: string) {
-    this.id = id;
-    this.title = title;
-    this.category = category;
-  }
-}
-```
-
-发送端和接收端都使用这个模型，页面间协议就保持一致。
+点击 `UIAbility` 时显示 `UIAbility / 001`；点击 `List` 时显示 `List / 003`。若仍显示固定文字，检查 `pushPath()`、`pageBuilder` 和 `DetailPage` 是否都使用了 `DetailParams`。
 
 ## 与上一课的联系
 
-上一课完成 `NavDestination` 入栈；这一课给入栈信息补上类型明确的业务参数。
+第 8 课只完成静态跳转；这一课沿用完全相同的导航栈，把“点击了谁”带到详情页。
 
 ## 官方参考
 

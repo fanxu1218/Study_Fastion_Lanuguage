@@ -32,10 +32,14 @@ const tracks = [
   'motion',
   'davinci-resolve',
 ];
-const harmonyDeprecatedApiPatterns = [
+const harmonyForbiddenPatterns = [
   {
     pattern: /\brouter\.(?:pushUrl|getParams|back)\s*\(/,
     label: '全局 router.pushUrl/getParams/back',
+  },
+  {
+    pattern: /import\s*\{[^}]*\b(?:AppStorage|PersistentStorage)\b[^}]*\}\s*from\s*['"]@kit\.ArkUI['"]/,
+    label: '从 @kit.ArkUI 导入全局 AppStorage/PersistentStorage',
   },
 ];
 let hasError = false;
@@ -63,9 +67,9 @@ for (const track of tracks) {
 
     const content = await readFile(path.join(directory, file), 'utf8');
     if (track === 'harmonyos') {
-      for (const deprecatedApi of harmonyDeprecatedApiPatterns) {
-        if (deprecatedApi.pattern.test(content)) {
-          console.error(`[${track}] 包含已废弃 API（${deprecatedApi.label}）：${file}`);
+      for (const forbiddenUsage of harmonyForbiddenPatterns) {
+        if (forbiddenUsage.pattern.test(content)) {
+          console.error(`[${track}] 包含禁止用法（${forbiddenUsage.label}）：${file}`);
           hasError = true;
         }
       }
@@ -85,6 +89,10 @@ for (const track of tracks) {
     }
     if (!/练习/.test(content) || !/参考答案/.test(content)) {
       console.error(`[${track}] 缺少练习或参考答案：${file}`);
+      hasError = true;
+    }
+    if (!content.includes('## 与上一课的联系')) {
+      console.error(`[${track}] 缺少“与上一课的联系”：${file}`);
       hasError = true;
     }
   }

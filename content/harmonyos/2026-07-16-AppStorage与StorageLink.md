@@ -1,15 +1,13 @@
 # 第 11 课：AppStorage 与 @StorageLink
 
 - 日期：2026-07-16
-- 时效校验：2026-09-14（HarmonyOS API 20 SDK、华为官方状态管理与 Navigation 文档）
+- 时效校验：2026-09-15（HarmonyOS API 20 SDK、华为官方应用状态管理文档）
 - 知识点：`AppStorage`、`@StorageLink`
-- 适用场景：不同页面内容共享登录态、收藏数、主题开关等应用级 UI 状态
+- 适用场景：让第 10 课的列表和详情共享收藏数
 
-承接上一课的 `NavPathStack`：导航内容之间不仅要能进入和返回，还经常要看到同一份共享数据。这一课学习如何把 UI 状态提升到应用级存储。
+承接上一课：列表与详情已经能进入、传参和返回。这一课保持同一组组件，只给它们增加一份共享收藏状态。
 
-## 1. `AppStorage` 保存应用级共享状态
-
-`@State` 只在当前组件内部生效，`@Link` 适合父子组件同步；如果不同页面内容没有直接父子关系，可以把少量应用级 UI 状态放到 `AppStorage`。
+## 1. 初始化一份应用级 UI 状态
 
 在应用初始化位置执行一次：
 
@@ -17,107 +15,57 @@
 AppStorage.setOrCreate<number>('favoriteCount', 0);
 ```
 
-可以把数据流理解成：
+`AppStorage` 是应用级 UI 状态容器；`@StorageLink` 与指定 key 双向同步。这里不需要从 `@kit.ArkUI` 导入 `AppStorage`，它由 ArkUI 状态管理框架提供。
 
-```text
-列表内容与详情内容绑定同一个 key
--> 详情内容修改 favoriteCount
--> AppStorage 更新
--> 列表内容自动显示最新值
-```
+## 2. 在上一课的两个组件中绑定同一个 key
 
-## 2. 与 `Navigation` 一起使用
-
-下面只保留本课关键代码。列表内容通过 `NavPathStack` 进入详情，两个组件都使用 `@StorageLink('favoriteCount')` 绑定同一事实源。
+在 `TopicPage` 中增加字段，并把文字放在 `Navigation` 的列表内容上方：
 
 ```ts
-class FavoriteRouteParams {
-}
-
-@Entry
-@Component
-struct FavoritePage {
-  pathStack: NavPathStack = new NavPathStack();
-  @StorageLink('favoriteCount') favoriteCount: number = 0;
-
-  @Builder
-  pageBuilder(name: string, param: Object) {
-    if (name === 'FavoriteDetail') {
-      FavoriteDetail({ pathStack: this.pathStack })
-    }
-  }
-
-  build() {
-    Navigation(this.pathStack) {
-      Column({ space: 16 }) {
-        Text(`当前收藏数: ${this.favoriteCount}`)
-          .fontSize(22)
-
-        Button('去详情')
-          .onClick(() => {
-            this.pathStack.pushPath({
-              name: 'FavoriteDetail',
-              param: new FavoriteRouteParams()
-            });
-          })
-      }
-      .width('100%')
-      .height('100%')
-      .justifyContent(FlexAlign.Center)
-    }
-    .title('收藏')
-    .navDestination(this.pageBuilder)
-  }
-}
-
-@Component
-struct FavoriteDetail {
-  pathStack: NavPathStack = new NavPathStack();
-  @StorageLink('favoriteCount') favoriteCount: number = 0;
-
-  build() {
-    NavDestination() {
-      Column({ space: 16 }) {
-        Text(`详情收藏数: ${this.favoriteCount}`)
-          .fontSize(22)
-
-        Button('收藏 +1')
-          .onClick(() => {
-            this.favoriteCount += 1;
-          })
-
-        Button('返回')
-          .onClick(() => {
-            this.pathStack.pop();
-          })
-      }
-      .width('100%')
-      .height('100%')
-      .justifyContent(FlexAlign.Center)
-    }
-    .title('详情')
-  }
-}
+@StorageLink('favoriteCount') favoriteCount: number = 0;
 ```
 
-`AppStorage` 适合 UI 状态共享，不等同于业务数据库；大量数据、结构化业务数据或跨进程数据应选择对应的数据存储方案。
+```ts
+Text(`当前收藏数: ${this.favoriteCount}`)
+  .fontSize(20)
+```
 
-## 3～5 分钟练习
-
-在详情内容添加“重置收藏数”按钮，把 `favoriteCount` 改回 `0`。返回后确认列表内容也显示 `0`。
-
-## 参考答案
+在原来的 `DetailPage` 中增加相同字段和按钮；上一课的标题、id 与返回按钮都保留：
 
 ```ts
-Button('重置收藏数')
+@StorageLink('favoriteCount') favoriteCount: number = 0;
+```
+
+```ts
+Text(`详情收藏数: ${this.favoriteCount}`)
+  .fontSize(20)
+
+Button('收藏 +1')
   .onClick(() => {
-    this.favoriteCount = 0;
+    this.favoriteCount += 1;
   })
 ```
 
+数据链路现在是：
+
+```text
+详情页点击“收藏 +1”
+-> @StorageLink 写入 favoriteCount
+-> AppStorage 更新
+-> 返回后 TopicPage 显示同一个新值
+```
+
+## 3～5 分钟练习
+
+进入任意详情连续点击两次“收藏 +1”，再使用第 10 课的返回按钮回到列表，确认收藏数变成 `2`。
+
+## 参考答案
+
+两个组件必须使用完全相同的 key：`favoriteCount`。如果一个地方拼写不同，它们就不是同一份共享状态。
+
 ## 与上一课的联系
 
-上一课解决“如何从详情正确出栈”；这一课进一步解决“返回后如何看到最新共享状态”，同时继续沿用现行 `Navigation` 路由链路。
+第 10 课解决“回到原列表”；这一课继续同一个列表—详情示例，解决“返回后仍看到详情里修改的新状态”。
 
 ## 官方参考
 

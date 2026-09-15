@@ -1,125 +1,59 @@
-# 第 12 课：@StorageProp 只读共享状态
+# 第 12 课：@StorageProp 单向共享状态
 
 - 日期：2026-07-17
+- 时效校验：2026-09-15（HarmonyOS API 20 SDK、华为官方应用状态管理文档）
 - 知识点：`@StorageProp`
-- 适用场景：页面或组件只需要读取应用级共享状态，不应该直接修改它，例如显示当前用户名、主题名称、登录文案
+- 适用场景：在第 11 课中增加只展示收藏数、不负责写入的组件
 
-承接上一课的 `AppStorage` 与 `@StorageLink`：上一课解决“多个页面都能改同一份状态”，这一课继续区分“谁负责修改、谁只负责展示”，避免所有组件都直接写全局状态。
+承接上一课：`TopicPage` 与 `DetailPage` 都通过 `@StorageLink` 修改收藏数。实际项目中，纯展示组件不需要获得写入共享状态的职责。
 
-## 1. `@StorageProp` 适合只读订阅
+## 1. 新增一个只做展示的组件
 
-`@StorageLink('key')` 是可读可写绑定，适合真正要改共享状态的地方。  
-`@StorageProp('key')` 是只读订阅，组件会跟着 `AppStorage` 的值刷新，但不应该在当前组件里直接改它。
+继续使用上一课已经初始化的 `favoriteCount`，新增：
 
-可以把它理解成：
+```ts
+@Component
+struct FavoriteSummary {
+  @StorageProp('favoriteCount') favoriteCount: number = 0;
+
+  build() {
+    Text(`收藏总数: ${this.favoriteCount}`)
+      .fontSize(18)
+  }
+}
+```
+
+然后在第 11 课 `TopicPage` 的列表上方使用它：
+
+```ts
+FavoriteSummary()
+```
+
+`@StorageProp` 与 `AppStorage` 是单向同步：共享值变化会刷新组件；即使本地修改字段，也不会写回 `AppStorage`。因此这里只展示，不给它添加修改按钮。
+
+## 2. 现在三者职责不同
 
 ```text
-状态源修改 AppStorage
--> 使用 @StorageProp 的组件自动刷新
--> 展示组件不承担写入职责
+DetailPage + @StorageLink -> 可以增加收藏
+TopicPage + @StorageLink  -> 可以读取，也可承担业务写入
+FavoriteSummary + @StorageProp -> 只展示最新值
 ```
 
-## 2. 最小示例
-
-先准备一个应用级共享用户名：
-
-```ts
-import { AppStorage } from '@kit.ArkUI';
-
-AppStorage.setOrCreate('userName', '游客');
-```
-
-写入状态的页面使用 `@StorageLink`：
-
-```ts
-@Entry
-@Component
-struct ProfilePage {
-  @StorageLink('userName') userName: string = '游客';
-
-  build() {
-    Column({ space: 12 }) {
-      Text(`当前用户：${this.userName}`)
-        .fontSize(22)
-
-      Button('切换为 Harmony 用户')
-        .onClick(() => {
-          this.userName = 'Harmony 用户';
-        })
-    }
-    .width('100%')
-    .height('100%')
-    .justifyContent(FlexAlign.Center)
-  }
-}
-```
-
-只负责展示的子组件使用 `@StorageProp`：
-
-```ts
-@Component
-struct WelcomeBanner {
-  @StorageProp('userName') userName: string = '游客';
-
-  build() {
-    Text(`欢迎你，${this.userName}`)
-      .fontSize(20)
-  }
-}
-```
-
-这样 `ProfilePage` 改了 `userName` 后，`WelcomeBanner` 会自动刷新，但欢迎条本身不负责改全局用户名。
+它们仍然围绕第 7 课开始的同一组列表数据和第 8～10 课的同一条导航链路工作。
 
 ## 3～5 分钟练习
 
-在示例中再增加一个 `Text`，显示：
-
-```text
-当前身份：已登录 / 未登录
-```
-
-要求：
-
-1. 新增 `loginLabel` 这个 `AppStorage` 字段，默认值是 `未登录`。
-2. 在按钮点击时，同时把它改成 `已登录`。
-3. 用一个只读展示组件通过 `@StorageProp('loginLabel')` 显示这个值。
+把 `FavoriteSummary` 同时放进列表和详情。点击“收藏 +1”，观察两个展示位置是否一起刷新。
 
 ## 参考答案
 
-```ts
-import { AppStorage } from '@kit.ArkUI';
-
-AppStorage.setOrCreate('loginLabel', '未登录');
-```
-
-```ts
-@Entry
-@Component
-struct ProfilePage {
-  @StorageLink('loginLabel') loginLabel: string = '未登录';
-
-  build() {
-    Column({ space: 12 }) {
-      Button('模拟登录')
-        .onClick(() => {
-          this.loginLabel = '已登录';
-        })
-
-      LoginStatusText()
-    }
-  }
-}
-
-@Component
-struct LoginStatusText {
-  @StorageProp('loginLabel') loginLabel: string = '未登录';
-
-  build() {
-    Text(`当前身份：${this.loginLabel}`)
-  }
-}
-```
+两个 `FavoriteSummary()` 都绑定 `favoriteCount`，所以 `DetailPage` 通过 `@StorageLink` 改值后，两处都会刷新；展示组件本身不需要写入代码。
 
 ## 与上一课的联系
 
-上一课建立了“多个页面共享一份状态”；这一课补上“共享状态的读写职责分离”，为后续学习 `PersistentStorage` 或更复杂的全局状态组织打基础。
+第 11 课建立共享状态；这一课不换示例，只把“谁负责写、谁只负责展示”拆清楚。
+
+## 官方参考
+
+- [管理应用拥有的状态概述](https://developer.huawei.com/consumer/cn/doc/doccenter-capabilities/arkts-application-state-management-overview)
+- [数据存储方案如何选择](https://developer.huawei.com/consumer/cn/doc/doccenter-dev-faq/faqs-local-database-management-38)

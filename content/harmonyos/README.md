@@ -17,12 +17,12 @@
 5. [2026-07-08：ForEach 与稳定 Key](2026-07-08-ForEach与稳定Key.md)——用数组生成 UI，并用业务唯一 id 标识列表项。
 6. [2026-07-09：List 与 ListItem](2026-07-09-List与ListItem.md)——组合数据遍历、行容器和可滚动列表。
 7. [2026-07-10：列表点击与选中状态](2026-07-10-列表点击与选中状态.md)——用 selectedId 驱动列表选中效果。
-8. [2026-07-13：Navigation 与 NavPathStack 页面跳转](2026-07-13-router页面跳转.md)——用组件导航从列表内容进入 NavDestination 详情内容。
-9. [2026-07-14：NavPathStack 参数传递](2026-07-14-router参数与aboutToAppear.md)——通过 NavPathInfo.param 传递类型明确的页面参数。
-10. [2026-07-15：NavPathStack 返回与路由栈](2026-07-15-router返回与路由栈.md)——使用 pop 保持正确的入栈和出栈语义。
-11. [2026-07-16：AppStorage 与 @StorageLink](2026-07-16-AppStorage与StorageLink.md)——在现行 Navigation 路由链路中共享应用级 UI 状态。
-12. [2026-07-17：@StorageProp 只读共享状态](2026-07-17-StorageProp只读共享状态.md)——让展示组件只订阅共享状态，不直接承担写入职责。
-13. [2026-07-20：PersistentStorage 状态持久化](2026-07-20-PersistentStorage状态持久化.md)——让共享状态在应用重启后仍能恢复。
+8. [2026-07-13：Navigation 基础页面跳转](2026-07-13-router页面跳转.md)——在第 7 课列表点击后，只增加进入静态详情这一项能力。
+9. [2026-07-14：NavPathStack 参数传递](2026-07-14-router参数与aboutToAppear.md)——让第 8 课的静态详情显示被点击列表项的数据。
+10. [2026-07-15：NavPathStack 返回与路由栈](2026-07-15-router返回与路由栈.md)——在第 9 课详情中增加 pop 返回，完成入栈与出栈闭环。
+11. [2026-07-16：AppStorage 与 @StorageLink](2026-07-16-AppStorage与StorageLink.md)——让同一列表和详情共享收藏数。
+12. [2026-07-17：@StorageProp 单向共享状态](2026-07-17-StorageProp只读共享状态.md)——为同一收藏数增加只展示、不写回的组件。
+13. [2026-07-20：PersistentStorage 状态持久化](2026-07-20-PersistentStorage状态持久化.md)——让前两课的收藏数在应用重启后恢复。
 14. [2026-07-21：@Provide 与 @Consume 组件树共享状态](2026-07-21-Provide与Consume组件树共享状态.md)——在页面组件树内共享状态，避免多层 `@Prop` 透传。
 15. [2026-07-22：@Watch 状态监听与派生处理](2026-07-22-Watch状态监听与派生处理.md)——在状态变化时集中更新派生文案或联动结果。
 16. [2026-07-24：组件生命周期与资源清理](2026-07-24-组件生命周期与资源清理.md)——在组件进入时启动任务，并在离开时成对释放资源。
