@@ -57,3 +57,4 @@
 51. [2026-09-10：订阅者驱动上游启停](./2026-09-10-订阅者驱动上游启停.md)——把订阅者数量转换为昂贵上游任务的启停信号。
 52. [2026-09-11：订阅状态去重启停命令](./2026-09-11-订阅状态去重启停命令.md)——避免订阅数量波动造成重复启停。
 53. [2026-09-14：WhileSubscribed重启上游测试](./2026-09-14-WhileSubscribed重启上游测试.md)——测试 WhileSubscribed 在重新订阅时重启上游。
+54. [2026-09-15：replayExpirationMillis清理回放](./2026-09-15-replayExpirationMillis清理回放.md)——配置 WhileSubscribed 在停止后清理 replay 缓存。

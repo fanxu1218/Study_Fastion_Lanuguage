@@ -14,3 +14,4 @@
 8. [2026-09-10：Inspector裁切画面](./2026-09-10-Inspector裁切画面.md)——用四边裁切参数隐藏片段边缘干扰。
 9. [2026-09-11：Inspector调整片段透明度](./2026-09-11-Inspector调整片段透明度.md)——通过透明度混合上下两层画面。
 10. [2026-09-14：Composite Mode融合片段](./2026-09-14-CompositeMode融合片段.md)——用 Composite Mode 融合上下轨道片段。
+11. [2026-09-15：AdjustmentClip统一效果](./2026-09-15-AdjustmentClip统一效果.md)——用 Adjustment Clip 为多个片段统一添加效果。

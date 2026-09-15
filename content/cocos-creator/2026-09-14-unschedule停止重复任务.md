@@ -34,3 +34,11 @@ stop(): void { this.unschedule(this.tick) }
 ## 与上一课的联系
 
 上一课用 `schedule` 建立重复任务；本课在生命周期结束时精确撤销它。
+
+## 时效校验
+
+时效校验：2026-09-15（Cocos Creator 3.8 当前 API）。已复核本课用法，未发现废弃标记；本轮官方资料见下方链接。
+
+## 官方参考
+
+- [Cocos Creator 3.8 API：Component](https://docs.cocos.com/creator/3.8/api/en/class/Component)

@@ -33,3 +33,11 @@ println(longer)
 ## 与上一课的联系
 
 上一课用 `associateBy` 建立索引；本课定义索引中元素的数据结构。
+
+## 时效校验
+
+时效校验：2026-09-15（Kotlin 当前官方文档）。已复核本课用法，未发现废弃标记；本轮官方资料见下方链接。
+
+## 官方参考
+
+- [Kotlin Docs：Sealed classes and interfaces](https://kotlinlang.org/docs/sealed-classes.html)

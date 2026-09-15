@@ -35,3 +35,11 @@ NavigationStack {
 ## 与上一课的联系
 
 上一课用 `@Bindable` 编辑共享模型；本课把状态驱动的列表连接到详情层级。
+
+## 时效校验
+
+时效校验：2026-09-15（SwiftUI 当前官方文档）。已复核本课用法，未发现废弃标记；本轮官方资料见下方链接。
+
+## 官方参考
+
+- [Apple Developer：Understanding the navigation stack](https://developer.apple.com/documentation/swiftui/understanding-the-navigation-stack)

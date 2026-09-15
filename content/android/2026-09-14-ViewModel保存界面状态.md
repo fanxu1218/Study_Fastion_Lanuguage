@@ -34,3 +34,11 @@ class LessonViewModel : ViewModel() {
 ## 与上一课的联系
 
 上一课让按钮切换运行状态；本课把该状态移到配置变更可存活的所有者。
+
+## 时效校验
+
+时效校验：2026-09-15（AndroidX Lifecycle 当前文档）。已复核本课用法，未发现废弃标记；本轮官方资料见下方链接。
+
+## 官方参考
+
+- [Android Developers：Saved state module for ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate)

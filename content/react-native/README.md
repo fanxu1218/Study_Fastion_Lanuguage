@@ -13,3 +13,4 @@
 9. [2026-09-10：FlatList空状态](./2026-09-10-FlatList空状态.md)——在数据为空时显示明确提示。
 10. [2026-09-11：FlatList项目分隔](./2026-09-11-FlatList项目分隔.md)——为长列表添加统一项目分隔。
 11. [2026-09-14：FlatList稳定keyExtractor](./2026-09-14-FlatList稳定keyExtractor.md)——用稳定键保证 FlatList 项目复用正确。
+12. [2026-09-15：RefreshControl下拉刷新](./2026-09-15-RefreshControl下拉刷新.md)——用 RefreshControl 为 FlatList 添加受控下拉刷新。

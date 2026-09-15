@@ -35,3 +35,11 @@
 ## 参考资料
 
 - [Blender 5.2 LTS 官方手册：Modifiers Introduction](https://docs.blender.org/manual/en/latest/modeling/modifiers/introduction.html)（2026-09-14 核对）。
+
+## 时效校验
+
+时效校验：2026-09-15（Blender 5.2 LTS 当前手册）。已复核本课用法，未发现废弃标记；本轮官方资料见下方链接。
+
+## 官方参考
+
+- [Blender Manual：Shading](https://docs.blender.org/manual/en/latest/scene_layout/object/editing/shading.html)

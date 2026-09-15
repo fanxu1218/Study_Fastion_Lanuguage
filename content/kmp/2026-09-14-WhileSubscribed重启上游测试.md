@@ -37,3 +37,11 @@ assertEquals(2, starts)
 ## 与上一课的联系
 
 上一课去重启停命令；本课从外部订阅行为验证上游确实能重新启动。
+
+## 时效校验
+
+时效校验：2026-09-15（kotlinx.coroutines 1.10.2 当前 API）。已复核本课用法，未发现废弃标记；本轮官方资料见下方链接。
+
+## 官方参考
+
+- [kotlinx.coroutines API：WhileSubscribed](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-sharing-started/-companion/-while-subscribed.html)

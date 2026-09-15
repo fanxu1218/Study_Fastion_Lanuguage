@@ -33,3 +33,11 @@
 ## 与上一课的联系
 
 上一课为列表项目加入分隔线；本课保证项目在更新时身份稳定。
+
+## 时效校验
+
+时效校验：2026-09-15（React Native 0.82 当前文档）。已复核本课用法，未发现废弃标记；本轮官方资料见下方链接。
+
+## 官方参考
+
+- [React Native：RefreshControl](https://reactnative.dev/docs/refreshcontrol)

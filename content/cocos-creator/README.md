@@ -12,3 +12,4 @@
 8. [2026-09-10：unscheduleAllCallbacks生命周期清理](./2026-09-10-unscheduleAllCallbacks生命周期清理.md)——在组件禁用时统一清理自定义调度。
 9. [2026-09-11：schedule重复任务](./2026-09-11-schedule重复任务.md)——按固定间隔注册可清理的重复任务。
 10. [2026-09-14：unschedule停止重复任务](./2026-09-14-unschedule停止重复任务.md)——使用同一回调引用取消重复调度。
+11. [2026-09-15：isScheduled检查调度状态](./2026-09-15-isScheduled检查调度状态.md)——用 isScheduled 避免重复注册同一调度回调。

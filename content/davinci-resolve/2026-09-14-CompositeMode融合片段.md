@@ -35,3 +35,11 @@ Screen 通常弱化黑色并保留亮部；Normal 按原片段和透明度覆盖
 ## 参考资料
 
 - [Blackmagic Design 官方 DaVinci Resolve 20 Colorist Guide](https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Colorist-Guide.pdf)（2026-09-14 核对）。
+
+## 时效校验
+
+时效校验：2026-09-15（DaVinci Resolve 20 官方指南）。已复核本课用法，未发现废弃标记；本轮官方资料见下方链接。
+
+## 官方参考
+
+- [Blackmagic Design：DaVinci Resolve 20 Beginner's Guide](https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Beginners-Guide.pdf)

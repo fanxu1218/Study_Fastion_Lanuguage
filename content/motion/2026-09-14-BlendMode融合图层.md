@@ -35,3 +35,11 @@ Screen 倾向保留亮部并提亮；Multiply 倾向保留暗部并压暗。
 ## 参考资料
 
 - [Apple Motion 用户指南：Change a layer’s blend mode](https://support.apple.com/guide/motion/change-a-layers-blend-mode-motn292ea104/mac)（2026-09-14 核对）。
+
+## 时效校验
+
+时效校验：2026-09-15（Motion 当前官方指南）。已复核本课用法，未发现废弃标记；本轮官方资料见下方链接。
+
+## 官方参考
+
+- [Apple Motion User Guide：Add a shape mask](https://support.apple.com/guide/motion/add-a-shape-mask-motn169f662c/mac)

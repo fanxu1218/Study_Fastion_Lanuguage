@@ -31,3 +31,11 @@ Draw Order 时间线只改变插槽绘制先后，不修改骨骼层级或附件
 ## 与上一课的联系
 
 上一课用事件关键帧标记动作时点；本课在同一时间线修正部件遮挡。
+
+## 时效校验
+
+时效校验：2026-09-15（Spine 当前官方用户指南）。已复核本课用法，未发现废弃标记；本轮官方资料见下方链接。
+
+## 官方参考
+
+- [Esoteric Software Spine User Guide：Skins](https://esotericsoftware.com/spine-skins)
