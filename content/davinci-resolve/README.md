@@ -15,3 +15,5 @@
 9. [2026-09-11：Inspector调整片段透明度](./2026-09-11-Inspector调整片段透明度.md)——通过透明度混合上下两层画面。
 10. [2026-09-14：Composite Mode融合片段](./2026-09-14-CompositeMode融合片段.md)——用 Composite Mode 融合上下轨道片段。
 11. [2026-09-15：AdjustmentClip统一效果](./2026-09-15-AdjustmentClip统一效果.md)——用 Adjustment Clip 为多个片段统一添加效果。
+
+12. [2026-09-16：AdjustmentClip关键帧](./2026-09-16-AdjustmentClip关键帧.md)——让统一效果随时间逐渐增强。

@@ -15,3 +15,5 @@
 11. [2026-09-11：ListView.separated列表间隔](./2026-09-11-ListView.separated列表间隔.md)——为动态列表添加统一分隔。
 12. [2026-09-14：ListView.builder按需构建](./2026-09-14-ListView.builder按需构建.md)——使用 builder 按需渲染动态列表。
 13. [2026-09-15：ListTile构建标准列表行](./2026-09-15-ListTile构建标准列表行.md)——用 ListTile 组织按需构建的课程列表行。
+
+14. [2026-09-16：ListTile点击回调](./2026-09-16-ListTile点击回调.md)——点击列表行时处理当前课程。

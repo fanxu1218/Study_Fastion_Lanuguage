@@ -13,3 +13,5 @@
 9. [2026-09-11：按钮切换运行状态](./2026-09-11-按钮切换运行状态.md)——让按钮文字由同一个布尔状态可靠切换。
 10. [2026-09-14：ViewModel保存界面状态](./2026-09-14-ViewModel保存界面状态.md)——用 ViewModel 持有可跨配置变更的界面状态。
 11. [2026-09-15：SavedStateHandle恢复状态](./2026-09-15-SavedStateHandle恢复状态.md)——用 SavedStateHandle 保存可恢复的轻量 ViewModel 状态。
+
+12. [2026-09-16：StateFlow暴露可观察状态](./2026-09-16-StateFlow暴露可观察状态.md)——用 StateFlow 把可恢复状态作为只读流提供给界面。

@@ -58,3 +58,5 @@
 52. [2026-09-11：订阅状态去重启停命令](./2026-09-11-订阅状态去重启停命令.md)——避免订阅数量波动造成重复启停。
 53. [2026-09-14：WhileSubscribed重启上游测试](./2026-09-14-WhileSubscribed重启上游测试.md)——测试 WhileSubscribed 在重新订阅时重启上游。
 54. [2026-09-15：replayExpirationMillis清理回放](./2026-09-15-replayExpirationMillis清理回放.md)——配置 WhileSubscribed 在停止后清理 replay 缓存。
+
+55. [2026-09-16：advanceTimeBy验证回放过期](./2026-09-16-advanceTimeBy验证回放过期.md)——用虚拟时间精确推进 replayExpirationMillis 边界。

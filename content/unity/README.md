@@ -13,3 +13,5 @@
 9. [2026-09-11：OnDisable清理Coroutine](./2026-09-11-OnDisable清理Coroutine.md)——在组件停用时清理未完成协程。
 10. [2026-09-14：Invoke延迟单次调用](./2026-09-14-Invoke延迟单次调用.md)——用 Invoke 安排并取消简单延迟调用。
 11. [2026-09-15：InvokeRepeating重复调用](./2026-09-15-InvokeRepeating重复调用.md)——用 InvokeRepeating 安排并清理固定间隔任务。
+
+12. [2026-09-16：WaitForSeconds动态等待](./2026-09-16-WaitForSeconds动态等待.md)——用协程按运行时参数等待不同时间。

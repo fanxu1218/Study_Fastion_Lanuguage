@@ -13,3 +13,5 @@
 9. [2026-09-11：Bindable编辑环境模型](./2026-09-11-Bindable编辑环境模型.md)——让表单控件双向编辑共享模型。
 10. [2026-09-14：NavigationStack页面导航](./2026-09-14-NavigationStack页面导航.md)——使用 NavigationStack 构建列表到详情的导航。
 11. [2026-09-15：navigationDestination映射值路由](./2026-09-15-navigationDestination映射值路由.md)——用 navigationDestination 为列表值统一映射详情页。
+
+12. [2026-09-16：NavigationPath编程式导航](./2026-09-16-NavigationPath编程式导航.md)——由状态主动把课程值推入导航栈。
