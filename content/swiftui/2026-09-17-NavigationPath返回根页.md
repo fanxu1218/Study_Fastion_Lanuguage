@@ -39,4 +39,3 @@ Button("返回首页") {
 ## 官方参考
 
 - [Apple Developer：NavigationPath](https://developer.apple.com/documentation/swiftui/navigationpath)
-

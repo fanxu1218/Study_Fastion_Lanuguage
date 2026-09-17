@@ -38,4 +38,3 @@ final class LessonStore { var current = LessonValue(minutes: 5) }
 ## 官方参考
 
 - [The Swift Programming Language：Classes and Structures](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures/)
-

@@ -41,4 +41,3 @@ lifecycleScope.launch {
 ## 官方参考
 
 - [Android Developers：StateFlow and SharedFlow](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow)
-

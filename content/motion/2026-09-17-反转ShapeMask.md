@@ -39,4 +39,3 @@ Invert Mask 交换遮罩内外可见范围，原图层与遮罩路径都保持�
 ## 官方参考
 
 - [Apple Motion User Guide：Add a shape mask](https://support.apple.com/guide/motion/add-a-shape-mask-motn169f662c/mac)
-

@@ -38,4 +38,3 @@ first 为 5，longer 为 10。
 ## 官方参考
 
 - [Microsoft Learn：Records](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record)
-

@@ -40,4 +40,3 @@ checkValidity 返回 false，reportValidity 显示浏览器提示。
 ## 官方参考
 
 - [WHATWG HTML：Constraint validation API](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#the-constraint-validation-api)
-
