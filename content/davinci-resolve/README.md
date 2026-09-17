@@ -17,3 +17,5 @@
 11. [2026-09-15：AdjustmentClip统一效果](./2026-09-15-AdjustmentClip统一效果.md)——用 Adjustment Clip 为多个片段统一添加效果。
 
 12. [2026-09-16：AdjustmentClip关键帧](./2026-09-16-AdjustmentClip关键帧.md)——让统一效果随时间逐渐增强。
+
+13. [2026-09-17：关键帧缓入缓出](./2026-09-17-关键帧缓入缓出.md)——让 Adjustment Clip 的效果变化更自然。

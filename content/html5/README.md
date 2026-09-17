@@ -16,3 +16,5 @@
 12. [2026-09-15：pattern约束输入格式](./2026-09-15-pattern约束输入格式.md)——用 pattern 为已标注的输入框增加格式校验。
 
 13. [2026-09-16：setCustomValidity自定义提示](./2026-09-16-setCustomValidity自定义提示.md)——为 pattern 失败提供更清楚的错误说明。
+
+14. [2026-09-17：checkValidity触发表单校验](./2026-09-17-checkValidity触发表单校验.md)——在提交前用浏览器约束校验判断表单是否有效。

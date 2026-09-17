@@ -15,3 +15,5 @@
 11. [2026-09-15：SavedStateHandle恢复状态](./2026-09-15-SavedStateHandle恢复状态.md)——用 SavedStateHandle 保存可恢复的轻量 ViewModel 状态。
 
 12. [2026-09-16：StateFlow暴露可观察状态](./2026-09-16-StateFlow暴露可观察状态.md)——用 StateFlow 把可恢复状态作为只读流提供给界面。
+
+13. [2026-09-17：repeatOnLifecycle按生命周期收集](./2026-09-17-repeatOnLifecycle按生命周期收集.md)——按可见生命周期安全收集 ViewModel 的 StateFlow。

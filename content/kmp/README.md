@@ -60,3 +60,5 @@
 54. [2026-09-15：replayExpirationMillis清理回放](./2026-09-15-replayExpirationMillis清理回放.md)——配置 WhileSubscribed 在停止后清理 replay 缓存。
 
 55. [2026-09-16：advanceTimeBy验证回放过期](./2026-09-16-advanceTimeBy验证回放过期.md)——用虚拟时间精确推进 replayExpirationMillis 边界。
+
+56. [2026-09-17：runCurrent执行到期任务](./2026-09-17-runCurrent执行到期任务.md)——只执行当前虚拟时间点已排队的协程任务。

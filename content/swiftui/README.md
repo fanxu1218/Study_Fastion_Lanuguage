@@ -15,3 +15,5 @@
 11. [2026-09-15：navigationDestination映射值路由](./2026-09-15-navigationDestination映射值路由.md)——用 navigationDestination 为列表值统一映射详情页。
 
 12. [2026-09-16：NavigationPath编程式导航](./2026-09-16-NavigationPath编程式导航.md)——由状态主动把课程值推入导航栈。
+
+13. [2026-09-17：NavigationPath返回根页](./2026-09-17-NavigationPath返回根页.md)——一次清空导航路径回到根页面。
