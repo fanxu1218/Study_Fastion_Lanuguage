@@ -17,3 +17,4 @@
 12. [2026-09-16：StateFlow暴露可观察状态](./2026-09-16-StateFlow暴露可观察状态.md)——用 StateFlow 把可恢复状态作为只读流提供给界面。
 
 13. [2026-09-17：repeatOnLifecycle按生命周期收集](./2026-09-17-repeatOnLifecycle按生命周期收集.md)——按可见生命周期安全收集 ViewModel 的 StateFlow。
+14. [2026-09-18：状态更新按钮文字](./2026-09-18-状态更新按钮文字.md)——把上一课收集到的 running 状态显示到按钮文字中。

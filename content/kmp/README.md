@@ -62,3 +62,4 @@
 55. [2026-09-16：advanceTimeBy验证回放过期](./2026-09-16-advanceTimeBy验证回放过期.md)——用虚拟时间精确推进 replayExpirationMillis 边界。
 
 56. [2026-09-17：runCurrent执行到期任务](./2026-09-17-runCurrent执行到期任务.md)——只执行当前虚拟时间点已排队的协程任务。
+57. [2026-09-18：advanceUntilIdle清空队列](./2026-09-18-advanceUntilIdle清空队列.md)——在协程测试中推进虚拟时间，直到没有待执行任务。
