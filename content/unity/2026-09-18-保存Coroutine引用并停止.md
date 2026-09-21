@@ -16,7 +16,7 @@ StartCoroutine 返回 Coroutine；保存引用后可停止这一实例，并在�
 
 ```text
 Coroutine running;
-void Begin() { running = StartCoroutine(TickLoop()); }
+void Begin() { running = StartCoroutine(Practice()); }
 void Stop() {
     if (running == null) return;
     StopCoroutine(running);
@@ -38,7 +38,7 @@ void Stop() {
 
 ## 时效校验
 
-时效校验：2026-09-18（Unity 6.3 LTS 当前 API）。已实际打开并核对下列官方资料；未发现本课主方案存在废弃标记。
+时效校验：2026-09-21（Unity 6.3 LTS 当前 API；保留原课程日期与序号，已重新核对本课用法，未见废弃标记）。
 
 ## 官方参考
 

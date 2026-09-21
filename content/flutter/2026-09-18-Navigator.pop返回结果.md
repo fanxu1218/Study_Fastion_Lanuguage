@@ -15,9 +15,18 @@ Navigator.push 返回 Future；详情页用 Navigator.pop(context, result) 完�
 ## 最小代码或操作示例
 
 ```text
-final saved = await Navigator.push<bool>(context, MaterialPageRoute(builder: (_) => const DetailPage()));
-
-Navigator.pop(context, true);
+onTap: () async {
+  final saved = await Navigator.push<bool>(
+    context,
+    MaterialPageRoute(builder: (detailContext) => Scaffold(
+      body: TextButton(
+        onPressed: () => Navigator.pop(detailContext, true),
+        child: Text(lessons[index]),
+      ),
+    )),
+  );
+  if (saved == true) debugPrint('已保存');
+}
 ```
 
 ## 3～5 分钟练习
@@ -34,7 +43,7 @@ Navigator.pop(context, true);
 
 ## 时效校验
 
-时效校验：2026-09-18（Flutter 当前 Navigator API）。已实际打开并核对下列官方资料；未发现本课主方案存在废弃标记。
+时效校验：2026-09-21（Flutter 3.47.2 当前 Navigator API；保留原课程日期与序号，已重新核对 `Navigator.push` 与 `Navigator.pop` 返回结果的用法，未见废弃标记）。
 
 ## 官方参考
 

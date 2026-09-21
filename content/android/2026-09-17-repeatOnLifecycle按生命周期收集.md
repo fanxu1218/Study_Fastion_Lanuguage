@@ -17,7 +17,7 @@ repeatOnLifecycle 会在目标生命周期进入 STARTED 时启动收集，离�
 ```text
 lifecycleScope.launch {
   repeatOnLifecycle(Lifecycle.State.STARTED) {
-    viewModel.running.collect { binding.runButton.isEnabled = !it }
+    viewModel.running.collect { running -> binding.toggleButton.isSelected = running }
   }
 }
 ```
@@ -36,8 +36,9 @@ lifecycleScope.launch {
 
 ## 时效校验
 
-时效校验：2026-09-17（AndroidX Lifecycle 当前文档；repeatOnLifecycle 需 lifecycle-runtime-ktx 2.4.0+）。已打开并核对下列官方资料；未发现本课主方案存在废弃标记。
+时效校验：2026-09-21（Android 17 / SDK API 37 与 AndroidX Lifecycle 当前文档；`repeatOnLifecycle` 需 `lifecycle-runtime-ktx` 2.4.0+，`View.isSelected` 自 API 1 可用；未见废弃标记）。
 
 ## 官方参考
 
 - [Android Developers：StateFlow and SharedFlow](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow)
+- [Android Developers：Set up the Android 17 SDK](https://developer.android.com/about/versions/17/setup-sdk)

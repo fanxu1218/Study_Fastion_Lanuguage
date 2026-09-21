@@ -18,3 +18,5 @@
 
 13. [2026-09-17：repeatOnLifecycle按生命周期收集](./2026-09-17-repeatOnLifecycle按生命周期收集.md)——按可见生命周期安全收集 ViewModel 的 StateFlow。
 14. [2026-09-18：状态更新按钮文字](./2026-09-18-状态更新按钮文字.md)——把上一课收集到的 running 状态显示到按钮文字中。
+
+15. [2026-09-21：按钮调用ViewModel切换状态](./2026-09-21-按钮调用ViewModel切换状态.md)——点击按钮时更新已有 StateFlow 的单一事实源。

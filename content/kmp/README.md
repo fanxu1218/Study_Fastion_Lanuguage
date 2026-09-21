@@ -63,3 +63,5 @@
 
 56. [2026-09-17：runCurrent执行到期任务](./2026-09-17-runCurrent执行到期任务.md)——只执行当前虚拟时间点已排队的协程任务。
 57. [2026-09-18：advanceUntilIdle清空队列](./2026-09-18-advanceUntilIdle清空队列.md)——在协程测试中推进虚拟时间，直到没有待执行任务。
+
+58. [2026-09-21：对比runCurrent与advanceUntilIdle](./2026-09-21-对比runCurrent与advanceUntilIdle.md)——观察延迟任务在两个测试调度步骤后的状态。
