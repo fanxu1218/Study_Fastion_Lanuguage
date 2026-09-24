@@ -31,11 +31,11 @@ System.out.println(notes.get(new Lesson("Java", 5)));
 
 ## 与上一课的联系
 
-沿用第 15 课的 `Lesson` record 和相同组件值；本课只新增把 record 放入 `HashMap` 作为键；完成练习后下一课可观察组件值变化对键查找的影响。
+沿用第 15 课的 `Lesson` record 和相同组件值；本课只新增把 record 放入 `HashMap` 作为键；完成练习后下一课可先用 `containsKey` 判断键是否存在。
 
 ## 时效校验
 
-时效校验：2026-09-21（当前 Java SE 27 规范；record 自 Java 16 起正式可用；已用本机 JBR 17.0.14 编译运行，未见本课方案的废弃说明）。
+时效校验：2026-09-24（当前 Java SE 27 规范；record 自 Java 16 起正式可用；已用本机 JBR 17.0.14 编译运行，未见本课方案的废弃说明）。
 
 ## 官方参考
 

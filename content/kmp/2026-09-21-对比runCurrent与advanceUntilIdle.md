@@ -37,11 +37,11 @@ fun comparesSchedulerSteps() = runTest {
 
 ## 与上一课的联系
 
-沿用第 57 课的 `runTest`、延迟任务与 `advanceUntilIdle()`；本课只在其前增加 `runCurrent()` 和中间状态断言；完成练习后下一课可用 `advanceTimeBy` 检查指定虚拟时刻。
+沿用第 57 课的 `runTest`、延迟任务与 `advanceUntilIdle()`；本课只在其前增加 `runCurrent()` 和中间状态断言；完成练习后下一课可用 `advanceTimeBy` 只推进指定的虚拟时长。
 
 ## 时效校验
 
-时效校验：2026-09-21（当前 Kotlin 2.4.20、kotlinx-coroutines-test 1.11.0；`runCurrent` 与 `advanceUntilIdle` 均标注 `ExperimentalCoroutinesApi`，未标注废弃，示例已显式 opt-in）。
+时效校验：2026-09-24（当前 Kotlin 2.4.20、kotlinx-coroutines-test 1.11.0；`runCurrent` 与 `advanceUntilIdle` 均标注 `ExperimentalCoroutinesApi`，未标注废弃，示例已显式 opt-in）。
 
 ## 官方参考
 

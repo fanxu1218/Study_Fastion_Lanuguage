@@ -28,11 +28,11 @@ running 依次切换，文字由 StateFlow 收集结果更新。
 
 ## 与上一课的联系
 
-沿用第 14 课收集 `viewModel.running` 并更新 `toggleButton` 文字的代码；本课只新增点击时调用 `viewModel.toggle()`；完成练习后下一课可由同一状态同步按钮可用性。
+沿用第 14 课收集 `viewModel.running` 并更新 `toggleButton` 文字的代码；本课只新增点击时调用 `viewModel.toggle()`；完成练习后下一课可让 ViewModel 原子地更新同一状态流。
 
 ## 时效校验
 
-时效校验：2026-09-21（Android 17 / SDK API 37 的 Views Button 文档与 AndroidX Lifecycle 当前文档；`View.setOnClickListener` 自 API 1 可用，相邻课使用的 `repeatOnLifecycle` 需 2.4.0+；未见废弃标记）。
+时效校验：2026-09-24（Android 17 / SDK API 37 的 Views Button 文档与 AndroidX Lifecycle 当前文档；`View.setOnClickListener` 自 API 1 可用，相邻课使用的 `repeatOnLifecycle` 需 2.4.0+；未见废弃标记）。
 
 ## 官方参考
 

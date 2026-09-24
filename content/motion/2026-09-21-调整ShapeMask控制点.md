@@ -30,11 +30,11 @@ Edit Rectangle 会显示矩形 Shape Mask 的屏幕控件；拖动角点只调�
 
 ## 与上一课的联系
 
-沿用第 13 课已反转并设置 Feather 的矩形 Shape Mask；本课只新增 Edit Rectangle 调整蒙版几何；完成练习后下一课可给蒙版几何变化设置关键帧。
+沿用第 13 课已反转并设置 Feather 的矩形 Shape Mask；本课只新增 Edit Rectangle 调整蒙版几何；下一课可在 Mask Inspector 中独立设定宽度。
 
 ## 时效校验
 
-时效校验：2026-09-21（Apple Motion 6.3 当前用户指南；已打开并核对 Edit Rectangle 的当前用法，未见本课方案的废弃说明）。
+时效校验：2026-09-24（Apple Motion 6.3 当前用户指南；已打开并核对 Edit Rectangle 的当前用法，未见本课方案的废弃说明）。
 
 ## 官方参考
 
