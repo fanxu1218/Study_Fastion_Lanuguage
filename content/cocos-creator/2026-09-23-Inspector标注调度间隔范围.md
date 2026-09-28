@@ -20,7 +20,7 @@ interval = 1
 
 onEnable(): void {
   const seconds = Math.max(this.interval, 0.1)
-  if (!this.isScheduled(this.tick)) this.schedule(this.tick, seconds)
+  this.schedule(this.tick, seconds)
 }
 ```
 
@@ -30,17 +30,18 @@ onEnable(): void {
 
 ## 参考答案
 
-属性按 0.1 秒步长调整；`schedule` 使用正数间隔，原有去重逻辑不变。
+属性按 0.1 秒步长调整；`schedule` 使用正数间隔，同一回调不会重复注册。
 
 ## 与上一课的联系
 
-沿用第 16 课标明单位的 `interval`、第 15 课的 `Math.max`、`tick` 和 `isScheduled`；本课只新增 Inspector 的 `range` 元数据；下一课可为属性增加悬停说明。
+沿用第 16 课标明单位的 `interval`、第 15 课的 `Math.max` 与同一 `tick` 回调；本课只新增 Inspector 的 `range` 元数据；下一课可为属性增加悬停说明。
 
 ## 时效校验
 
-时效校验：2026-09-24（已打开 Cocos Creator 3.8 LTS Property Attributes 与 Scheduler 官方手册；`range`、`schedule` 未见废弃标记）。
+时效校验：2026-09-28（已核对 Cocos Creator 3.8 LTS Property Attributes、Scheduler 手册及 3.8.9 `Component` 源码；移除组件不存在的 `isScheduled` 调用）。
 
 ## 官方参考
 
 - [Cocos Creator 3.8：Property Attributes](https://docs.cocos.com/creator/3.8/manual/en/scripting/reference/attributes.html)
 - [Cocos Creator 3.8：Scheduler](https://docs.cocos.com/creator/3.8/manual/en/scripting/scheduler.html)
+- [Cocos Creator 3.8.9：Component 源码](https://github.com/cocos/cocos-engine/blob/v3.8.9/cocos/scene-graph/component.ts)

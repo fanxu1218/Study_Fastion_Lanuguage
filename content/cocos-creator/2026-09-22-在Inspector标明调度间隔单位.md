@@ -19,7 +19,7 @@
 interval = 1
 ```
 
-保留第 15 课 `onEnable()` 中的 `Math.max(this.interval, 0.1)` 和调度去重代码。
+保留第 15 课 `onEnable()` 中的 `Math.max(this.interval, 0.1)` 和同一 `tick` 回调的调度、清理代码。
 
 ## 3～5 分钟练习
 
@@ -35,8 +35,10 @@ Inspector 显示“调度间隔（秒）”；脚本仍以 `this.interval` 读�
 
 ## 时效校验
 
-时效校验：2026-09-24（已打开 Cocos Creator 3.8 LTS Property Attributes 官方手册，确认 `displayName`；未见废弃标记）。
+时效校验：2026-09-28（已核对 Cocos Creator 3.8 LTS Property Attributes、Scheduler 手册及 3.8.9 `Component` 源码，修正与上一课的衔接）。
 
 ## 官方参考
 
 - [Cocos Creator：Property Attributes](https://docs.cocos.com/creator/3.8/manual/en/scripting/reference/attributes.html)
+- [Cocos Creator 3.8：Scheduler](https://docs.cocos.com/creator/3.8/manual/en/scripting/scheduler.html)
+- [Cocos Creator 3.8.9：Component 源码](https://github.com/cocos/cocos-engine/blob/v3.8.9/cocos/scene-graph/component.ts)
