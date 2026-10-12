@@ -1,6 +1,16 @@
 /// <reference types="vite/client" />
 
 export const trackConfigs = {
+  'ai-agent-development': {
+    slug: 'ai-agent-development',
+    name: 'AI 应用与智能体开发',
+    shortName: 'AI 智能体',
+    eyebrow: 'AI 应用工程',
+    description: '从模型调用与提示词开始，逐步学习 Python、RAG、LangChain、LangGraph、MCP、评估、微调与生产部署。',
+    accent: 'bg-blue-600',
+    surface: 'from-blue-50 to-white dark:from-blue-950/35 dark:to-card',
+    gradient: 'from-blue-600 to-cyan-500',
+  },
   kmp: {
     slug: 'kmp',
     name: 'Kotlin Multiplatform',
@@ -286,6 +296,12 @@ export const trackConfigs = {
 export type TrackSlug = keyof typeof trackConfigs;
 
 export const trackGroups = [
+  {
+    slug: 'ai-development',
+    name: 'AI 应用与智能体',
+    description: '从模型能力边界开始，构建可检索、可调用工具、可评估并能部署的智能体应用。',
+    tracks: ['ai-agent-development'],
+  },
   {
     slug: 'languages',
     name: '编程语言',

@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const tracks = [
+  'ai-agent-development',
   'kmp',
   'harmonyos',
   'python',
