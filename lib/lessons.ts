@@ -11,6 +11,16 @@ export const trackConfigs = {
     surface: 'from-blue-50 to-white dark:from-blue-950/35 dark:to-card',
     gradient: 'from-blue-600 to-cyan-500',
   },
+  fde: {
+    slug: 'fde',
+    name: 'FDE：业务与 AI 交付',
+    shortName: 'FDE',
+    eyebrow: 'Forward Deployed Engineer',
+    description: '从客户问题与业务流程开始，逐步学习数据和系统集成、AI 原型、综合项目、部署与交付验收。',
+    accent: 'bg-teal-600',
+    surface: 'from-teal-50 to-white dark:from-teal-950/35 dark:to-card',
+    gradient: 'from-teal-600 to-emerald-500',
+  },
   kmp: {
     slug: 'kmp',
     name: 'Kotlin Multiplatform',
@@ -299,8 +309,8 @@ export const trackGroups = [
   {
     slug: 'ai-development',
     name: 'AI 应用与智能体',
-    description: '从模型能力边界开始，构建可检索、可调用工具、可评估并能部署的智能体应用。',
-    tracks: ['ai-agent-development'],
+    description: '学习智能体应用开发与 FDE 业务交付，把模型能力连接到可验证的实际工作流程。',
+    tracks: ['ai-agent-development', 'fde'],
   },
   {
     slug: 'languages',

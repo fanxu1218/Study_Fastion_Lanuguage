@@ -1,6 +1,6 @@
 # 渐进式编程课
 
-一个按工作日持续更新的中文 AI 应用、编程与数字创作学习网站。二十九条路线各自保持独立的课程序号和知识路径，每节课只聚焦一个主题，并提供最小代码或操作示例、3～5 分钟练习与参考答案。
+一个按工作日持续更新的中文 AI 应用、FDE 业务交付、编程与数字创作学习网站。三十条路线各自保持独立的课程序号和知识路径，每节课只聚焦一个主题，并提供最小代码或操作示例、3～5 分钟练习与参考答案。
 
 ## 入口
 
@@ -8,13 +8,14 @@
 - 全站搜索：[https://study.fanxu12180618.chatgpt.site/search](https://study.fanxu12180618.chatgpt.site/search)
 - 课程源文件：[`content/`](./content)
 
-## 二十九条学习路线
+## 三十条学习路线
 
-### AI 应用与智能体（1 条）
+### AI 应用与智能体（2 条）
 
 | 路线 | 课程索引 | 学习方向 |
 | --- | --- | --- |
 | AI 应用与智能体开发 | [`content/ai-agent-development/README.md`](./content/ai-agent-development/README.md) | AI 基础、Python、RAG、LangChain、LangGraph、MCP、评估、微调与部署 |
+| FDE：业务与 AI 交付 | [`content/fde/README.md`](./content/fde/README.md) | 客户调研、业务流程、数据与系统集成、AI 原型、验收、部署与交付 |
 
 ### 编程语言（9 条）
 
@@ -85,10 +86,11 @@ content/<路线>/
 
 ## 自动更新规则
 
-- 自动任务：`工作日二十九路线编程课`。
+- 自动任务：`工作日三十路线编程课`。
 - 更新时间：北京时间周一至周五 09:00。
 - 周六、周日、法定节假日和调休休息日不更新，也不补课。
-- 每个有效更新日，二十九条路线各推进一课；当天文件已存在时只校验，不重复生成。
+- 每个有效更新日，每条未完结路线各推进一课；当天文件已存在时只校验，不重复生成。
+- FDE 第一版目标为 140 节，AI 应用与智能体开发为 180 节；各路线达到目标后标记完结，不再生成常规课程。
 - 内容校验和网站构建都成功后，才会提交、推送并发布到公开网站。
 
 ## 本地查看与验证
@@ -109,7 +111,7 @@ pnpm dev
 ```text
 app/                         网站页面与路由
 components/                  通用界面组件
-content/                     二十九条路线的 README 与课程 Markdown
+content/                     三十条路线的 README 与课程 Markdown
 lib/lessons.ts               路线注册、课程解析与检索
 scripts/validate-content.mjs 课程日期、序号与结构校验
 public/                      站点图片与图标
@@ -118,4 +120,4 @@ public/                      站点图片与图标
 
 ## 验证边界
 
-仓库构建会验证 Markdown 能被网站读取并生成页面，但不会自动执行课程里的 AI Agent、KMP、ArkTS、Python、Rust、Flutter、Web、JVM、.NET、C++、Go、Android、Apple 平台、游戏引擎、三维设计、图像处理或影视后期示例。课程示例是否可运行，需要在对应语言、平台或创作工具中另行验证。
+仓库构建会验证 Markdown 能被网站读取并生成页面，但不会自动执行课程里的 FDE 项目、AI Agent、KMP、ArkTS、Python、Rust、Flutter、Web、JVM、.NET、C++、Go、Android、Apple 平台、游戏引擎、三维设计、图像处理或影视后期示例。课程示例是否可运行，需要在对应语言、平台或创作工具中另行验证。

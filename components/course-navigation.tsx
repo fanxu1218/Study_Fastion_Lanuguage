@@ -41,7 +41,7 @@ export function CourseNavigation() {
           >
             <DropdownMenuGroup>
               <DropdownMenuLabel className="px-2 py-2 text-sm text-foreground">
-                29 条路线 · 6 大类别
+                30 条路线 · 6 大类别
               </DropdownMenuLabel>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
@@ -80,7 +80,7 @@ export function CourseNavigation() {
           <SheetContent side="right" className="w-[min(92vw,26rem)] gap-0 overflow-hidden p-0">
             <SheetHeader className="border-b px-5 py-5">
               <SheetTitle>全部课程</SheetTitle>
-              <SheetDescription>29 条路线按 6 个学习方向分类</SheetDescription>
+              <SheetDescription>30 条路线按 6 个学习方向分类</SheetDescription>
             </SheetHeader>
             <nav className="flex-1 space-y-6 overflow-y-auto px-5 py-5" aria-label="移动端课程导航">
               {trackGroups.map((group) => (

@@ -18,21 +18,21 @@ export const metadata: Metadata = {
     default: '渐进式编程课',
     template: '%s · 渐进式编程课',
   },
-  description: '二十九条 AI 应用、编程与数字创作路线在每个工作日同步更新，用中文短课持续积累技能栈。',
+  description: '三十条 AI 应用、FDE 业务交付、编程与数字创作路线在每个工作日同步更新，用中文短课持续积累技能栈。',
   openGraph: {
     title: '渐进式编程课',
-    description: '二十九条 AI 应用、编程与数字创作路线在每个工作日同步更新，用中文短课持续积累技能栈。',
+    description: '三十条 AI 应用、FDE 业务交付、编程与数字创作路线在每个工作日同步更新，用中文短课持续积累技能栈。',
     url: '/',
     siteName: '渐进式编程课',
     locale: 'zh_CN',
     type: 'website',
-    images: [{ url: '/og-v6.png', width: 1731, height: 909, alt: '二十九条路线渐进式 AI 应用、编程与数字创作课' }],
+    images: [{ url: '/og-v7.png', width: 1731, height: 909, alt: '三十条路线渐进式 AI 应用、FDE、编程与数字创作课' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: '渐进式编程课',
-    description: '二十九条 AI 应用、编程与数字创作路线在每个工作日同步更新，用中文短课持续积累技能栈。',
-    images: ['/og-v6.png'],
+    description: '三十条 AI 应用、FDE 业务交付、编程与数字创作路线在每个工作日同步更新，用中文短课持续积累技能栈。',
+    images: ['/og-v7.png'],
   },
 };
 

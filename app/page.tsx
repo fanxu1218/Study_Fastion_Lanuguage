@@ -46,14 +46,14 @@ export default function Home() {
               <span className="text-primary">积累成真正的技术栈。</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-              29 条路线覆盖 AI 应用与智能体、编程语言、应用与跨平台、Web、游戏引擎与动画、设计与影视后期。每课只聚焦一个主题，配有最小示例、动手练习和参考答案。
+              30 条路线覆盖 AI 应用与智能体、FDE 业务交付、编程语言、应用与跨平台、Web、游戏引擎与动画、设计与影视后期。每课只聚焦一个主题，配有最小示例、动手练习和参考答案。
             </p>
           </div>
           <div className="space-y-4">
             <div className="overflow-hidden rounded-2xl border border-border/70 bg-card shadow-lg">
               <Image
-                src="/og-v6.png"
-                alt="二十九条渐进式编程、AI 应用与数字创作学习路线"
+                src="/og-v7.png"
+                alt="三十条渐进式编程、AI 应用、FDE 与数字创作学习路线"
                 width={1731}
                 height={909}
                 priority
@@ -71,7 +71,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="mt-4 text-sm leading-6 text-muted-foreground">
-                二十九条路线同步更新，周末休息，并保留完整学习历史。
+                三十条路线同步更新，周末休息，并保留完整学习历史。
               </p>
             </div>
           </div>
@@ -84,7 +84,7 @@ export default function Home() {
             <p className="text-sm font-medium text-primary">学习路线</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight sm:text-3xl">从最新一课继续</h2>
           </div>
-          <p className="hidden text-sm text-muted-foreground sm:block">二十九条路线，每个工作日各推进一课</p>
+          <p className="hidden text-sm text-muted-foreground sm:block">三十条路线，每个工作日各推进一课</p>
         </div>
 
         <div className="space-y-14">
