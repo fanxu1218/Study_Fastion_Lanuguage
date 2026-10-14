@@ -17,6 +17,25 @@ Actor 是虚幻引擎关卡中可以放置或生成的基础对象。自定义 A
 
 ## 最小代码示例
 
+本课使用原 C++ 工程中的 HelloActor 类。先在 Source 的当前模块中建立 HelloActor.h，声明如下（generated.h 必须是最后一个 include）：
+
+```cpp
+#pragma once
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "HelloActor.generated.h"
+
+UCLASS()
+class AHelloActor : public AActor
+{
+    GENERATED_BODY()
+protected:
+    virtual void BeginPlay() override;
+};
+```
+
+下面放在同目录 HelloActor.cpp，文件顶部先写 #include "HelloActor.h"。如果工程已经生成了同名 Actor 类，保留原类声明，只替换其已有 BeginPlay 实现，不重复定义类或方法。编译后将该 Actor 类放入练习关卡，再运行观察日志。
+
 ```cpp
 void AHelloActor::BeginPlay()
 {
@@ -42,3 +61,11 @@ void AHelloActor::BeginPlay()
 ## 与上一课的联系
 
 这是虚幻引擎路线的第一课。下一课将学习 Actor Component 与根组件。
+
+## 时效校验
+
+时效校验：2026-10-14（实际读取 Unreal Engine 5.8 当前 Actors 正文；AActor 派生类承载 BeginPlay，补齐原片段缺失的类声明和文件位置；保持生命周期与日志语义，未使用废弃 API。）
+
+## 官方参考
+
+- [Epic：Actors](https://dev.epicgames.com/documentation/en-us/unreal-engine/actors-in-unreal-engine)
