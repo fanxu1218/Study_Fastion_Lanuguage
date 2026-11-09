@@ -5,9 +5,9 @@ import { NativeLink } from '@/components/native-link';
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-30 border-b border-border/70 bg-background/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-2 px-5 sm:gap-3 sm:px-8">
-        <NativeLink href="/" className="flex shrink-0 items-center gap-3 font-semibold tracking-tight">
+    <header className="sticky top-0 z-30 border-b border-border/70 bg-background/90 pt-[env(safe-area-inset-top)] backdrop-blur-xl">
+      <div className="site-container mx-auto flex h-16 max-w-6xl items-center gap-2 sm:gap-3">
+        <NativeLink href="/" className="flex min-h-11 shrink-0 items-center gap-2 font-semibold tracking-tight sm:gap-3">
           <span className="grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-sm">
             <Code2 className="size-4" />
           </span>
@@ -19,7 +19,7 @@ export function SiteHeader() {
         <NativeLink
           href="/search"
           aria-label="搜索课程"
-          className="grid size-9 place-items-center rounded-xl border border-border bg-card text-muted-foreground transition-colors hover:text-foreground"
+          className="grid size-11 shrink-0 place-items-center rounded-xl border border-border bg-card text-muted-foreground transition-colors hover:text-foreground"
         >
           <Search className="size-4" />
         </NativeLink>

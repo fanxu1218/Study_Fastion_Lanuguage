@@ -58,7 +58,7 @@ export function Markdown({ content }: { content: string }) {
       blocks.push(
         <div key={`block-${blockKey++}`} className="code-block">
           {fence[1] && <div className="code-language">{fence[1]}</div>}
-          <pre><code>{code.join('\n')}</code></pre>
+          <pre tabIndex={0} role="region" aria-label={`${fence[1] || '代码'}示例，可横向滚动`}><code>{code.join('\n')}</code></pre>
         </div>,
       );
       continue;

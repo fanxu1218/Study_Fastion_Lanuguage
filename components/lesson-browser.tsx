@@ -30,19 +30,22 @@ export function LessonBrowser({ lessons, placeholder = '搜索本路线课程…
   return (
     <div>
       <label htmlFor={searchId} className="relative mb-6 block">
+        <span className="sr-only">搜索课程</span>
         <Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
         <Input
           id={searchId}
+          type="search"
+          enterKeyHint="search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder={placeholder}
-          className="h-11 rounded-xl bg-card pl-11"
+          className="h-12 rounded-xl bg-card pl-11 text-base md:text-base"
         />
       </label>
 
-      <div className="mb-4 flex items-center justify-between text-xs text-muted-foreground">
-        <span>{filteredLessons.length} 节课程</span>
-        {query && <button type="button" onClick={() => setQuery('')} className="hover:text-foreground">清除搜索</button>}
+      <div className="mb-4 flex min-h-11 items-center justify-between text-xs text-muted-foreground">
+        <span role="status">{filteredLessons.length} 节课程</span>
+        {query && <button type="button" onClick={() => setQuery('')} className="min-h-11 rounded-lg px-3 hover:text-foreground">清除搜索</button>}
       </div>
 
       {filteredLessons.length > 0 ? (
@@ -51,14 +54,14 @@ export function LessonBrowser({ lessons, placeholder = '搜索本路线课程…
             <li key={`${lesson.track}-${lesson.slug}`}>
               <NativeLink
                 href={`/${lesson.track}/${lesson.slug}`}
-                className="group grid gap-3 rounded-2xl border border-border/70 bg-card p-5 shadow-[0_1px_0_rgb(0_0_0/3%)] transition-all hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-md sm:grid-cols-[58px_1fr_auto] sm:items-center"
+                className="group grid min-w-0 grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-2 rounded-2xl border border-border/70 bg-card p-4 shadow-[0_1px_0_rgb(0_0_0/3%)] transition-colors hover:border-primary/35 hover:shadow-md sm:grid-cols-[58px_minmax(0,1fr)_auto] sm:items-center sm:p-5"
               >
                 <span className="text-xs font-semibold text-primary">第 {lesson.number} 课</span>
-                <span>
-                  <span className="block font-medium tracking-tight">{lesson.title.replace(/^第\s*\d+\s*课[:：]?\s*/, '')}</span>
-                  <span className="mt-1 line-clamp-2 block text-xs leading-5 text-muted-foreground">{lesson.summary}</span>
+                <span className="col-span-2 row-start-2 min-w-0 sm:col-span-1 sm:col-start-2 sm:row-start-1">
+                  <span className="block font-medium tracking-tight [overflow-wrap:anywhere]">{lesson.title.replace(/^第\s*\d+\s*课[:：]?\s*/, '')}</span>
+                  <span className="mt-1 line-clamp-2 text-sm leading-6 text-muted-foreground">{lesson.summary}</span>
                 </span>
-                <span className="flex items-center gap-3 text-xs text-muted-foreground">
+                <span className="col-start-2 row-start-1 flex items-center gap-2 text-xs text-muted-foreground sm:col-start-3 sm:gap-3">
                   {lesson.date.replaceAll('-', '.')}
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
                 </span>

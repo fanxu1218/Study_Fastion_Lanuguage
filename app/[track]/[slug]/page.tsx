@@ -40,11 +40,11 @@ export default async function LessonPage({ params }: LessonPageProps) {
   return (
     <main className="min-h-screen">
       <SiteHeader />
-      <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8 sm:py-12">
-        <div className="grid gap-10 lg:grid-cols-[190px_minmax(0,760px)] lg:justify-center">
+      <div className="site-container mx-auto max-w-6xl py-5 sm:py-10">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[190px_minmax(0,760px)] lg:justify-center">
           <aside className="hidden lg:block">
             <div className="sticky top-24">
-              <NativeLink href={`/${track}`} className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+              <NativeLink href={`/${track}`} className="inline-flex min-h-11 items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
                 <ArrowLeft className="size-4" /> {config.shortName} 目录
               </NativeLink>
               <div className="mt-6 rounded-2xl border border-border/70 bg-card p-4">
@@ -57,11 +57,11 @@ export default async function LessonPage({ params }: LessonPageProps) {
             </div>
           </aside>
 
-          <article>
-            <NativeLink href={`/${track}`} className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground lg:hidden">
+          <article className="mx-auto w-full min-w-0 max-w-3xl">
+            <NativeLink href={`/${track}`} className="mb-3 inline-flex min-h-11 items-center gap-2 text-sm text-muted-foreground hover:text-foreground lg:hidden">
               <ArrowLeft className="size-4" /> {config.shortName} 目录
             </NativeLink>
-            <div className="mb-8 border-b border-border/70 pb-7">
+            <div className="mb-6 border-b border-border/70 pb-5 sm:mb-8 sm:pb-7">
               <div className="mb-4 flex flex-wrap gap-2">
                 <Badge variant="secondary"><ListOrdered className="mr-1 size-3" />第 {lesson.number} 课</Badge>
                 <Badge variant="outline"><CalendarDays className="mr-1 size-3" />{lesson.displayDate}</Badge>
@@ -77,7 +77,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
                   <span className="flex items-center gap-1 text-xs text-muted-foreground"><ArrowLeft className="size-3.5" />上一课</span>
                   <span className="mt-2 block text-sm font-medium">{previous.title.replace(/^第\s*\d+\s*课[:：]?\s*/, '')}</span>
                 </NativeLink>
-              ) : <span />}
+              ) : <span className="hidden sm:block" />}
               {next && (
                 <NativeLink href={`/${track}/${next.slug}`} className="group rounded-2xl border border-border/70 bg-card p-4 text-right hover:border-primary/35">
                   <span className="flex items-center justify-end gap-1 text-xs text-muted-foreground">下一课<ArrowRight className="size-3.5" /></span>

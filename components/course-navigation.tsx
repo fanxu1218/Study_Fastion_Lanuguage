@@ -1,6 +1,6 @@
 'use client';
 
-import { BookOpen, ChevronDown, Menu } from 'lucide-react';
+import { BookOpen, ChevronDown, Menu, X } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -25,10 +26,10 @@ import { trackConfigs, trackGroups } from '@/lib/lessons';
 export function CourseNavigation() {
   return (
     <>
-      <div className="hidden sm:block">
+      <div className="hidden lg:block">
         <DropdownMenu>
           <DropdownMenuTrigger
-            render={<Button variant="ghost" className="h-9 gap-2 px-3" />}
+            render={<Button variant="ghost" className="h-11 gap-2 px-3" />}
           >
             <BookOpen className="size-4" />
             全部课程
@@ -57,7 +58,7 @@ export function CourseNavigation() {
                       <DropdownMenuItem
                         key={slug}
                         render={<a href={`/${slug}`} />}
-                        className="min-h-8 px-2 py-1.5"
+                        className="min-h-11 px-2 py-2"
                       >
                         <span className="truncate">{trackConfigs[slug].shortName}</span>
                       </DropdownMenuItem>
@@ -70,19 +71,22 @@ export function CourseNavigation() {
         </DropdownMenu>
       </div>
 
-      <div className="sm:hidden">
+      <div className="lg:hidden">
         <Sheet>
           <SheetTrigger
-            render={<Button variant="outline" size="icon-lg" aria-label="打开课程菜单" />}
+            render={<Button variant="outline" size="icon-lg" className="size-11 rounded-xl" aria-label="打开课程菜单" />}
           >
             <Menu className="size-4" />
           </SheetTrigger>
-          <SheetContent side="right" className="w-[min(92vw,26rem)] gap-0 overflow-hidden p-0">
-            <SheetHeader className="border-b px-5 py-5">
+          <SheetContent side="right" showCloseButton={false} className="h-dvh! w-[min(92vw,26rem)]! max-w-none! gap-0 overflow-hidden p-0 pt-[env(safe-area-inset-top)]">
+            <SheetHeader className="shrink-0 border-b py-5 pl-5 pr-16">
               <SheetTitle>全部课程</SheetTitle>
               <SheetDescription>30 条路线按 6 个学习方向分类</SheetDescription>
             </SheetHeader>
-            <nav className="flex-1 space-y-6 overflow-y-auto px-5 py-5" aria-label="移动端课程导航">
+            <SheetClose render={<Button variant="ghost" size="icon-lg" className="absolute top-[max(.5rem,env(safe-area-inset-top))] right-[max(.5rem,env(safe-area-inset-right))] size-11" aria-label="关闭课程菜单" />}>
+              <X className="size-4" />
+            </SheetClose>
+            <nav className="min-h-0 flex-1 space-y-6 overflow-y-auto overscroll-contain py-5 pl-5 pr-[max(1.25rem,env(safe-area-inset-right))] pb-[max(1.25rem,env(safe-area-inset-bottom))]" aria-label="移动端课程导航">
               {trackGroups.map((group) => (
                 <section key={group.slug} aria-labelledby={`mobile-group-${group.slug}`}>
                   <div className="mb-2 flex items-center justify-between gap-3">
@@ -96,7 +100,7 @@ export function CourseNavigation() {
                       <a
                         key={slug}
                         href={`/${slug}`}
-                        className="rounded-lg border border-border/70 bg-card px-3 py-2.5 text-sm transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        className="flex min-h-11 min-w-0 items-center rounded-lg border border-border/70 bg-card px-3 py-2.5 text-sm [overflow-wrap:anywhere] transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                       >
                         {trackConfigs[slug].shortName}
                       </a>

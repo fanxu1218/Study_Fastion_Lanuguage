@@ -36,26 +36,26 @@ export default async function TrackPage({ params }: TrackPageProps) {
     <main className="min-h-screen">
       <SiteHeader />
       <section className="border-b border-border/70">
-        <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
-          <NativeLink href="/" className="mb-7 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+        <div className="site-container mx-auto max-w-6xl py-5 sm:py-10">
+          <NativeLink href="/" className="mb-4 inline-flex min-h-11 items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
             <ArrowLeft className="size-4" /> 返回全部路线
           </NativeLink>
-          <div className="grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+            <div className="min-w-0">
               <Badge variant="secondary" className="mb-4">{config.eyebrow}</Badge>
-              <h1 className="text-4xl font-semibold tracking-[-0.035em] sm:text-5xl">{config.name}</h1>
+              <h1 className="text-3xl font-semibold tracking-[-0.035em] [overflow-wrap:anywhere] sm:text-4xl lg:text-5xl">{config.name}</h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">{config.description}</p>
             </div>
-            <div className={`rounded-2xl bg-gradient-to-br ${config.gradient} p-5 text-white shadow-lg`}>
+            <div className={`flex items-center justify-between gap-4 rounded-2xl bg-gradient-to-br ${config.gradient} p-4 text-white shadow-lg md:block md:p-5`}>
               <div className="flex items-center gap-8">
                 <div>
                   <p className="text-3xl font-semibold">{lessons.length}</p>
                   <p className="mt-1 text-xs text-white/75">已归档课程</p>
                 </div>
-                <BookOpen className="size-8 text-white/80" />
+                <BookOpen className="hidden size-8 text-white/80 md:block" />
               </div>
               {latest && (
-                <div className="mt-5 border-t border-white/20 pt-4 text-xs text-white/80">
+                <div className="text-xs text-white/80 md:mt-5 md:border-t md:border-white/20 md:pt-4">
                   <CalendarDays className="mr-1.5 inline size-3.5" />更新至 {latest.displayDate}
                 </div>
               )}
@@ -64,7 +64,7 @@ export default async function TrackPage({ params }: TrackPageProps) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-5 py-10 sm:px-8 sm:py-14">
+      <section className="site-container mx-auto max-w-4xl py-7 sm:py-10">
         <div className="mb-7">
           <p className="text-sm font-medium text-primary">课程目录</p>
           <h2 className="mt-1 text-2xl font-semibold tracking-tight">按顺序学习，也可以直接搜索</h2>
